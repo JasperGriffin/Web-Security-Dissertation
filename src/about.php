@@ -1,6 +1,6 @@
 <?php
 
-include "nav.php";
+include "templates/nav.php";
 
  ?>
 

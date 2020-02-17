@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>Homepage</title>
-	<link rel="stylesheet" type="text/css" href="/public/assets/css/home_style.css">
+		<link rel="stylesheet" type="text/css" href="/public/assets/css/home_style.css">
 </head>
 <body>
 
@@ -16,10 +16,13 @@
 	</div>
 
 	<!-- New search bar -->
-	<form action="something.php" method="GET">
-		<input type="text" name="search" placeholder="Search...">
-	</form>
-	<!-- -->
+
+		<form action="something.php" method="GET">
+			<div class="search">
+				<input type="text" name="search" placeholder="Search...">
+			</div>
+		</form>
+
 
 	<?php
 			include "home_buttons.php";

@@ -44,23 +44,27 @@
 
 .sql {
   /*Remember to reference (sources page)*/
-  background: center url('https://media.giphy.com/media/sRFEa8lbeC7zbcIZZR/giphy.gif') no-repeat;
+  background: center url('https://miro.medium.com/max/1024/0*ErN7MyOU7wjQLSgM.jpg');
 }
 
 .xss {
-	background: center url('https://media.giphy.com/media/wAFJhmlBN61eo/giphy.gif') no-repeat;
+	/*Remember to reference (sources page)
+	background: center url('https://media.giphy.com/media/wAFJhmlBN61eo/giphy.gif') no-repeat;*/
 }
 
 .ba {
-	background: center url('https://media.discordapp.net/attachments/468505908042006566/657730447463415855/1564901244786.gif') no-repeat;
+	/*Remember to reference (sources page)
+	background: center url('https://media.discordapp.net/attachments/468505908042006566/657730447463415855/1564901244786.gif') no-repeat;*/
 }
 
 .csfr {
-	background: center url('https://media.giphy.com/media/dLFbXR7Mc5AU8/giphy.gif') no-repeat;
+	/*Remember to reference (sources page)
+	background: center url('https://media.giphy.com/media/dLFbXR7Mc5AU8/giphy.gif') no-repeat;*/
 }
 
 .sde {
-	background: center url('https://thumbs.gfycat.com/TenderGrizzledIriomotecat-size_restricted.gif') no-repeat;
+	/*Remember to reference (sources page)
+	background: center url('https://thumbs.gfycat.com/TenderGrizzledIriomotecat-size_restricted.gif') no-repeat;*/
 }
 
 .sql, .xss, .ba, .csfr, .sde {
@@ -90,4 +94,9 @@
 
 .sde:hover {
 	box-shadow: inset 0 0 0 1000px rgba(67,124,144,0.5);
+}
+
+.search {
+	width: 100%;
+  text-align:center;
 }
