@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+	font-family: "Montserrat", sans-serif;	
+	padding: 0;
+	margin: 0; 
+}
+
+a {
+	text-decoration: none;
+	color: #24252A;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 50px 10%;
+}
+
+.navbar li, a {
+
+	display: inline;
+	transition: all 0.3s ease 0s;
+}
+
+.navbar li {
+	list-style: none;
+}
+
+.navbar button {
+	border: none;
+	cursor: pointer;
+	padding: 10px 20px;
+	font-size: 15px;
+	background-color: white;
+}
+
+.navbar button:hover {
+	transition: all 1s ease 0s;
+	background-color: #f2f2f2;
+}
+
+.login-btn button { 
+	border-radius: 20px;
+	border: none;
+	padding: 12px 28px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	opacity: 0.6;
+
+	background: linear-gradient(150deg, #00ff80, #06f980, #0df280,
+								#13ec80, #19e680, #20df80, #26d980,
+								#2dd280, #33cc80, #39c680, #40bf80, 
+								#46b980, #4db380, #53ac80, #59a680,
+								#609f80, #669980, #6c9380, #738c80,
+								#798680, #808080);
+}
+
+.login-btn a {
+	color: white;
+	font-size: 15px;
+}
+
+.login-btn button:hover {
+	opacity: 1;
+}
+

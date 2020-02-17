@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/*
+* Colour palette: https://coolors.co/export/pdf/f61067-ffc857-51ff9e-00f0b5-437c90
+*/
+
+* {
+	font-family: "Montserrat", sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+.header h1, hr {
+	text-align:center;
+	margin: 0 auto;
+}
+
+.header h1 {
+	padding: 30px;
+}
+
+.home-btn {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-content: center;
+	grid-gap: 5px; /*5px*/
+	padding: 40px 10% 10px 10%;
+}
+
+.home-btn button {
+	border: none;
+	cursor: pointer;
+	padding-top: 28.125%; /*56.25 (16:9 ratio) / 2*/
+	padding-bottom: 28.125%; /*56.25 (16:9 ratio) / 2*/
+}
+
+.home-btn a {
+	font-size: 20px;
+	visibility: hidden;
+	transition: 0s;
+
+	display: block;
+}
+
+.sql {
+  /*Remember to reference (sources page)*/
+  background: center url('https://media.giphy.com/media/sRFEa8lbeC7zbcIZZR/giphy.gif') no-repeat;
+}
+
+.xss {
+	background: center url('https://media.giphy.com/media/wAFJhmlBN61eo/giphy.gif') no-repeat;
+}
+
+.ba {
+	background: center url('https://media.discordapp.net/attachments/468505908042006566/657730447463415855/1564901244786.gif') no-repeat;
+}
+
+.csfr {
+	background: center url('https://media.giphy.com/media/dLFbXR7Mc5AU8/giphy.gif') no-repeat;
+}
+
+.sde {
+	background: center url('https://thumbs.gfycat.com/TenderGrizzledIriomotecat-size_restricted.gif') no-repeat;
+}
+
+.sql, .xss, .ba, .csfr, .sde {
+	background-size: cover;
+}
+
+.sql:hover a, .xss:hover a, .ba:hover a, .csfr:hover a, .sde:hover a {
+	visibility: visible;
+	color: white;
+}
+
+.sql:hover {
+	box-shadow: inset 0 0 0 1000px rgba(246,16,103,0.5);
+}
+
+.xss:hover {
+	box-shadow: inset 0 0 0 1000px rgba(255,200,87,0.5);
+}
+
+.ba:hover {
+	box-shadow: inset 0 0 0 1000px rgba(81,255,158,0.5);
+}
+
+.csfr:hover {
+	box-shadow: inset 0 0 0 1000px rgba(0,240,181,0.5);
+}
+
+.sde:hover {
+	box-shadow: inset 0 0 0 1000px rgba(67,124,144,0.5);
+}
