@@ -44,27 +44,7 @@
 
 .sql {
   /*Remember to reference (sources page)*/
-  background: center url('https://miro.medium.com/max/1024/0*ErN7MyOU7wjQLSgM.jpg');
-}
-
-.xss {
-	/*Remember to reference (sources page)
-	background: center url('https://media.giphy.com/media/wAFJhmlBN61eo/giphy.gif') no-repeat;*/
-}
-
-.ba {
-	/*Remember to reference (sources page)
-	background: center url('https://media.discordapp.net/attachments/468505908042006566/657730447463415855/1564901244786.gif') no-repeat;*/
-}
-
-.csfr {
-	/*Remember to reference (sources page)
-	background: center url('https://media.giphy.com/media/dLFbXR7Mc5AU8/giphy.gif') no-repeat;*/
-}
-
-.sde {
-	/*Remember to reference (sources page)
-	background: center url('https://thumbs.gfycat.com/TenderGrizzledIriomotecat-size_restricted.gif') no-repeat;*/
+  background: center url('https://kinsta.com/wp-content/uploads/2020/01/sql-injection.jpg');
 }
 
 .sql, .xss, .ba, .csfr, .sde {
