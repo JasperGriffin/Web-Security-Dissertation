@@ -5,6 +5,7 @@
 
     class database {
 
+      //to call private variables, $this->[variable_name]
       private $connection;
       private $servername = "localhost";
       private $username = "root";
@@ -28,6 +29,8 @@
         if ($this->connection !== NULL) {
 
           $result = $this->connection->query($sql);
+
+          //prints data
           $this->printData($result);
         }
         else {
@@ -40,20 +43,10 @@
         if ($data->num_rows > 0) {
   				echo "<div class='home-btn'>";
   				while ($row = $data->fetch_assoc()) {
-  					echo "<button class='$row[class_name]'><a href='$row[php_page]'>$row[title]</a></button>";
+  					echo "<button class='$row[class_name]'><a href='$row[php_page]'><b>$row[title]</b></a></button>";
   				}
   				echo "</div>";
   			}
       }
-
     }
-
-
-
-
-
-    /* <button class="csfr"><a href="cross-site-forgery-request.php">Vulnerability #3</a></button>
-     <button class="ba"><a href="broken-authentication.php">Broken authentication - credential stuffing, having multi-factor authorisation</a></button>
-     <button class="sde"><a href="sensitive-data-exposure.php">Weak ciphers, pages not encrypted, protocol downgrade attacks</a></button>
-     */
  ?>

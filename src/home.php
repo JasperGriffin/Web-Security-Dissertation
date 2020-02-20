@@ -1,6 +1,5 @@
 <?php
 	require_once "templates/nav.php";
-	require_once "templates/nav.php";
 ?>
 
 <html>
@@ -16,10 +15,10 @@
 	</div>
 
 	<!-- New search bar -->
-	<form action="something.php" method="GET">
+	<form action="home.php" method="GET">
 		<div class="search">
-			<input type="text" name="search" placeholder="Search...">
-			<input type="submit">
+			<input type="text" name="search" placeholder="Search..." class="submit-txt">
+			<button type="submit" class="submit-btn"></button>
 		</div>
 	</form>
 
