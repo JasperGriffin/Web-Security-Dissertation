@@ -13,8 +13,8 @@ $foo = True;
 
 	<nav>
 		<ul class="navbar">
-			<li><button><a href="home.php">Jasper Griffin</a></button></li>
-			<li><button><a href="about.php">About</a></button></li>
+			<li><button><a href="index.php">Jasper Griffin</a></button></li>
+			<li><button><a href="#">About</a></button></li>
 			<li><button><a href="#">Contact</a></button></li>
 		</ul>
 	</nav>

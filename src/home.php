@@ -1,33 +1,25 @@
 <?php
+	//view
 	require_once "templates/nav.php";
+
+	include "mvc/views/home-view.php";
+	include "mvc/models/home-model.php";
+	include "mvc/controllers/controller.php";
+
+	$model = new model();
+
+	//connecting to database
+	$conn = $model->connect();
+
+	$controller = new controller();
+
+	//fetching home_buttons table with db connection
+	$data = $controller->fetchData();
+
+	$view = new view();
+
+	//printing database rows
+	$view->printData($data);
+
+	//$data = $home->getData();
 ?>
-
-<html>
-<head>
-	<title>Homepage</title>
-		<link rel="stylesheet" type="text/css" href="/public/assets/css/home_style.css">
-</head>
-<body>
-
-	<div class="header">
-		<h1>Types of vulnerabilities</h1>
-		<hr width="80%">
-	</div>
-
-	<!-- New search bar -->
-	<form action="home.php" method="GET">
-		<div class="search">
-			<input type="text" name="search" placeholder="Search..." class="submit-txt">
-			<button type="submit" class="submit-btn"></button>
-		</div>
-	</form>
-
-	<?php
-
-			include("home_buttons.php");
-			$database = new database();
-			$data = $database->getData();
-	 ?>
-
-</body>
-</html>
