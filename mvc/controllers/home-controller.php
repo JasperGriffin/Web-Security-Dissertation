@@ -1,10 +1,11 @@
 <?php
 
-class controller extends model {
+class home_controller extends home_model {
 
   private $conn;
 
   public function __construct() {
+
     $db = new parent();
     $this->conn = $db->connect();
   }
@@ -22,6 +23,13 @@ class controller extends model {
     else {
       echo "Connection failed";
     }
+  }
+
+  public function searchData($query) {
+
+    //is variable set, aka is it declared and different to NULL
+
+
   }
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-class model {
+class home_model {
 
   //to call private variables, $this->[variable_name]
   private $connection;
