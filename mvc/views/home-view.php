@@ -19,5 +19,9 @@
 
 	    }
 		}
+
+		public function printQuery() {
+			
+		}
 	}
 ?>

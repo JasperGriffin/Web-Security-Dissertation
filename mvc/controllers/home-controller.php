@@ -3,6 +3,7 @@
 class home_controller extends home_model {
 
   private $conn;
+  private $sql;
 
   public function __construct() {
 
@@ -13,11 +14,11 @@ class home_controller extends home_model {
   //controller
   public function fetchData() {
 
-    $sql = "SELECT class_name, php_page, title FROM home_buttons";
+    $this->sql = "SELECT class_name, php_page, title FROM home_buttons";
 
     if ($this->conn !== NULL) {
 
-      $result = mysqli_query($this->conn, $sql);
+      $result = mysqli_query($this->conn, $this->sql);
       return $result;
     }
     else {
@@ -27,8 +28,14 @@ class home_controller extends home_model {
 
   public function searchData($query) {
 
-    //is variable set, aka is it declared and different to NULL
+    $s = "SELECT title FROM home_buttons WHERE title LIKE '$query%'";
 
+    $r = mysqli_query($this->conn, $s);
+
+    while($row = mysql_fetch_array($r, MYSQL_ASSOC)) {
+      echo print_r($row);       // Print the entire row data
+      echo "<br />";
+    }
 
   }
 }

@@ -1,31 +1,15 @@
 <?php
 
-	include "mvc/models/home-model.php";
-
   if (isset($_GET['submit'])) {
-    //works. Ideal if called from another php file
 
-    $m = new home_model();
-    $conn = $m->connect();
+		$search = $_GET['search'];
 
-    $search = $conn->real_escape_string($_GET['search']);
+		//fetch user data //controller
+		$controller = new home_controller();
+		$data = $controller->searchData($search);
 
-    $data = $conn->query("SELECT title FROM home_buttons WHERE $search LIKE '%$search%'");
-    if ($data->num_rows > 0) {
-      echo "success";
+		//printing database rows
 
-      if ($data->) {
-        while($row = $data->fetch_assoc()) {
-          echo $row['title'];
-        }
-      }
-
-
-
-    }
-    else {
-      echo "fail";
-    }
   }
 
 ?>
