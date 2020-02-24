@@ -7,11 +7,6 @@
 	include "mvc/controllers/home-controller.php";
 	include "search.php";
 
-	//connecting to database
-
-	///$model = new home_model();
-	//$conn = $model->connect();
-
 	//fetching home_buttons table with db connection
 	$controller = new home_controller();
 	$data = $controller->fetchData();

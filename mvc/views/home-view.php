@@ -20,8 +20,5 @@
 	    }
 		}
 
-		public function printQuery() {
-			
-		}
 	}
 ?>

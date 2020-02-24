@@ -32,10 +32,9 @@ class home_controller extends home_model {
 
     $r = mysqli_query($this->conn, $s);
 
-    while($row = mysql_fetch_array($r, MYSQL_ASSOC)) {
+  $row = mysql_fetch_array($r);
       echo print_r($row);       // Print the entire row data
       echo "<br />";
-    }
 
   }
 }
