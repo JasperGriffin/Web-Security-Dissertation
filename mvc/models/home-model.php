@@ -20,5 +20,9 @@ class home_model {
 
     return $this->connection;
   }
+
+  public function destroy() {
+    mysql_close($this->connection);
+  }
 }
 ?>
