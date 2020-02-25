@@ -28,13 +28,14 @@ class home_controller extends home_model {
 
   public function searchData($query) {
 
-    $s = "SELECT title FROM home_buttons WHERE title LIKE '$query%'";
+    $this->sql = "SELECT title FROM home_buttons WHERE title LIKE '$query%'";
 
-    $r = mysqli_query($this->conn, $s);
+    $r = mysqli_query($this->conn, $this->sql);
 
-  $row = mysql_fetch_array($r);
-      echo print_r($row);       // Print the entire row data
-      echo "<br />";
+    while ($row = mysqli_fetch_array($r)) {
+      print_r($row). "<br />";
+    }
+
 
   }
 }
