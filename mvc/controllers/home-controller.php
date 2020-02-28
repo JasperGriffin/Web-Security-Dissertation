@@ -31,8 +31,6 @@ class home_controller extends home_model {
   public function searchData($query) {
 
     $this->sql = "SELECT title FROM home_buttons WHERE title LIKE '$query%'";
-    //$this->sql = "SELECT title FROM home_buttons WHERE id = '$query'";
-
 
     //%' OR '%
     //%' OR '1' = '1
@@ -53,20 +51,16 @@ class home_controller extends home_model {
     //sleep
     //sql'  UNION SELECT SLEEP(3)-- '
 
-    //NOT WORKING
+    //gets columns of home table (43 from TABLE_ID in SYS_TABLES)
+    //' union select name FROM INFORMATION_SCHEMA.INNODB_SYS_COLUMNS WHERE TABLE_ID = '43' -- '
 
-    //' union select COLUMN_NAME FROM INFORMATION_SCHEMA.INNODB_SYS_COLUMNS WHERE TABLE_NAME = 'home' -- '
+    $result = mysqli_query($this->conn, $this->sql);
 
-    $r = mysqli_query($this->conn, $this->sql);
+    echo "Num rows: ". $result->num_rows . "<br />";
 
-    echo "Num rows: ". $r->num_rows . "<br />";
+    return $result;
 
-    while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-        echo $row['title']. "<br />";
-        //print_r($row);
-    }
-
-    $this->conn->close();
+    //$this->conn->close();
   }
 }
 ?>

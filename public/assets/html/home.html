@@ -2,6 +2,8 @@
     <head>
 	     <title>Homepage</title>
 		   <link rel="stylesheet" type="text/css" href="/public/assets/css/home_style.css">
+       <link rel="stylesheet" type="text/css" href="/public/assets/css/home_buttons.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
 
@@ -10,12 +12,11 @@
     		<hr width="80%">
     	</div>
 
-    	<!-- New search bar -->
-    	<form action="" method="GET">
-    		<div class="search">
-    			<input type="text" name="search" placeholder="Search..." class="submit-txt">
-    			<button type="submit" name="submit" class="submit-btn">Search</button>
-    		</div>
+    	<!-- New search bar-->
+    	<form class="search" method="GET">
+          <!-- On the same line to avoid gaps between elements -->
+    			<input type="text" name="search" placeholder="Search..." class="submit-txt"><button type="submit" name="submit" class="submit-btn"><i class="fa fa-search"></i></button>
     	</form>
+
   </body>
 </html>

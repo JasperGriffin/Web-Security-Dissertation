@@ -25,16 +25,30 @@
 	padding-top: 40px;
 }
 
+.submit-txt, .submit-btn {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .submit-txt {
-	border-radius: 20px;
-	border: 1px solid #9A9A9A;
-	padding: 20px;
+	border: none;
+	padding: 15px;
+	border-radius: 5px 0px 0px 5px;
 	width: 30%;
+}
+
+.submit-btn {
+	border: none;
+	background: linear-gradient(150deg, #00ff80, #4cff9b, #74ffb7, #97ffd3, #b8fff0, #d8ffff);
+	color: white;
+	cursor: pointer;
+	border-radius: 0px 5px 5px 0px;
+	padding: 16.5px 0px 16px 0px;
+	width: 5%;
 }
 
 .home-btn {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	justify-content: center;
 	grid-gap: 10px; /*5px*/
 	padding: 40px 10% 10% 10%;
@@ -51,42 +65,4 @@
 	font-size: 20px;
 	visibility: hidden;
 	transition: 0s;
-}
-
-.sql {
-  /*Remember to reference (sources page)*/
-  background: center url('https://kinsta.com/wp-content/uploads/2020/01/sql-injection.jpg');
-}
-
-.xss {
-	background: center url('https://1.bp.blogspot.com/-Z_k1PAAb7TA/XXDmtXTlZvI/AAAAAAAA0-o/lDk_jz2opT06EMKvVWVbPLkOXiqqA3gswCLcBGAs/s728-e100/malware-cybersecurity-news.jpg');
-}
-
-.sql, .ba, .sde, .xxe, .bac, .sm, .xss, .id, .os{
-	background-size: cover;
-}
-
-.sql:hover a, .ba:hover a, .sde:hover a, .xxe:hover a, .bac:hover a, .sm:hover a, .xss:hover a, .id:hover a, .os:hover a {
-	visibility: visible;
-	color: white;
-}
-
-.sql:hover, .sm:hover {
-	box-shadow: inset 0 0 0 1000px rgba(246,16,103,0.5);
-}
-
-.ba:hover, .xss:hover {
-	box-shadow: inset 0 0 0 1000px rgba(255,200,87,0.5);
-}
-
-.sde:hover, .id:hover {
-	box-shadow: inset 0 0 0 1000px rgba(81,255,158,0.5);
-}
-
-.xxe:hover, .os:hover {
-	box-shadow: inset 0 0 0 1000px rgba(0,240,181,0.5);
-}
-
-.bac:hover {
-	box-shadow: inset 0 0 0 1000px rgba(67,124,144,0.5);
 }

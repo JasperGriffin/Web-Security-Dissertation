@@ -42,7 +42,7 @@ header {
 }
 
 .login-btn button {
-	border-radius: 20px;
+	border-radius: 10px;
 	border: none;
 	padding: 12px 28px;
 	cursor: pointer;

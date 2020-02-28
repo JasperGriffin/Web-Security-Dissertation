@@ -8,6 +8,9 @@
 		$controller = new home_controller();
 		$data = $controller->searchData($search);
 
+    $view = new home_view();
+  	$view->printQuery($data);
+
   }
 
 ?>
