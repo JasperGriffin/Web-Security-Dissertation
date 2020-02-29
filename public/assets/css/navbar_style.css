@@ -47,21 +47,17 @@ header {
 	padding: 12px 28px;
 	cursor: pointer;
 	transition: all 0.3s ease 0s;
-	opacity: 0.6;
-
-	background: linear-gradient(150deg, #00ff80, #06f980, #0df280,
+	/*opacity: 0.6;*/
+	background: #1ed760;
+	/*background: linear-gradient(150deg, #00ff80, #06f980, #0df280,
 								#13ec80, #19e680, #20df80, #26d980,
 								#2dd280, #33cc80, #39c680, #40bf80,
 								#46b980, #4db380, #53ac80, #59a680,
 								#609f80, #669980, #6c9380, #738c80,
-								#798680, #808080);
+								#798680, #808080);*/
 }
 
 .login-btn a {
 	color: white;
 	font-size: 15px;
-}
-
-.login-btn button:hover {
-	opacity: 1;
 }
