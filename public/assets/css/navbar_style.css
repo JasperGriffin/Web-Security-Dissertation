@@ -47,8 +47,10 @@ header {
 	padding: 12px 28px;
 	cursor: pointer;
 	transition: all 0.3s ease 0s;
-	/*opacity: 0.6;*/
+
 	background: #1ed760;
+
+	/*opacity: 0.6;*/
 	/*background: linear-gradient(150deg, #00ff80, #06f980, #0df280,
 								#13ec80, #19e680, #20df80, #26d980,
 								#2dd280, #33cc80, #39c680, #40bf80,

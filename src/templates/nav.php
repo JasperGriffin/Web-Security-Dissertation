@@ -13,7 +13,7 @@ $foo = True;
 
 	<nav>
 		<ul class="navbar">
-			<li><button><a href="index.php">Jasper Griffin</a></button></li>
+			<li><button><a href="/index.php">Jasper Griffin</a></button></li>
 			<li><button><a href="#">About</a></button></li>
 			<li><button><a href="#">Contact</a></button></li>
 		</ul>
@@ -22,7 +22,9 @@ $foo = True;
 	<div class="login-btn">
 
 		<?php if ($foo == true): ?>
-			<button><a href=""><b>Login</b></a></button>
+			<form action='/account/login.php' method='get'>
+				<button><a><b>Login</b></a></button>
+			</form>
 		<?php endif ?>
 
 		<?php if ($foo == false): ?>

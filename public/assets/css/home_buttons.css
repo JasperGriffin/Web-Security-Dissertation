@@ -9,6 +9,8 @@
 
 .sql, .ba, .sde, .xxe, .bac, .sm, .xss, .id, .os{
 	background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .sql:hover a, .ba:hover a, .sde:hover a, .xxe:hover a, .bac:hover a, .sm:hover a, .xss:hover a, .id:hover a, .os:hover a {

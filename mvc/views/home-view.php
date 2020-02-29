@@ -10,14 +10,13 @@
 
 	      echo "<div class='home-btn'>";
 		      while ($row = $data->fetch_assoc()) {
-
-						/*<a class="btn btn-primary" role="button">Link</a>*/
-						//change button class to a tag
-		        echo "<button class='$row[class_name]'><a href='/src/$row[php_page]'><b>$row[title]</b></a></button>";
-						/*echo "<a class='$row[class_name]' role='button' href='/src/$row[php_page]'><b>$row[title]</b></a>";*/
+						echo "<form action='/src/$row[php_page]' method='get'>";
+		        	echo "<button class='$row[class_name]'><a><b>$row[title]</b></a></button>";
+						echo "</form>";
 		      }
 	      echo "</div>";
 	    }
+
 		}
 
 		public function printQuery($data) {
