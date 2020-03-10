@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+	font-family: "Montserrat", sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+p {
+	text-decoration: none;
+	color: #24252A;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 50px 10%;
+	/*Position of nav to blend with vid*/
+	position: relative;
+}
+
+form {
+	display: inline-block;
+}
+
+.navbar {
+	background: transparent;
+}
+
+.navbar li, p {
+	display: inline;
+	transition: all 0.3s ease 0s;
+}
+
+.navbar li {
+	list-style: none;
+}
+
+.navbar button {
+	border: none;
+	cursor: pointer;
+	padding: 10px 20px;
+	font-size: 15px;
+	background: none;
+}
+
+.navbar button:hover {
+	transition: all 1s ease 0s;
+	background-color: #f2f2f2;
+}
+
+.login-btn button {
+	border-radius: 10px;
+	border: none;
+	padding: 12px 28px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	background: #1ed760;
+}
+
+.login-btn p {
+	color: white;
+	font-size: 15px;
+}

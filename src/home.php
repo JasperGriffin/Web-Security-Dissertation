@@ -1,6 +1,6 @@
 <?php
 
-	require_once "templates/nav.php";
+	require_once "templates/header.php";
 
 	include "mvc/views/home-view.php";
 	include "mvc/models/home-model.php";
