@@ -1,9 +1,9 @@
 /*Navbar changes*/
 .login-btn button {
-  background: #F61067;
+  background: #ffc857;
 }
 
 /*template changes*/
 .colour-overlay {
-  background: rgb(246,16,103,0.3);
+  background: rgb(255,200,87,0.3);
 }
