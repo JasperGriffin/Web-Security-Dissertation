@@ -1,6 +1,6 @@
 <?php
 
-	require "public/assets/html/home.html";
+	//require "public/assets/html/home.html";
 
 	class home_view {
 

@@ -8,6 +8,7 @@
 	font-family: "Montserrat", sans-serif;
 	padding: 0;
 	margin: 0;
+	animation: fade 1s;
 }
 
 .header h1, hr {
@@ -19,33 +20,6 @@
 	padding: 30px;
 }
 
-.search {
-	width: 100%;
-  text-align:center;
-	padding-top: 40px;
-}
-
-.submit-txt, .submit-btn {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.submit-txt {
-	border: none;
-	padding: 15px;
-	border-radius: 5px 0px 0px 5px;
-	width: 30%;
-}
-
-.submit-btn {
-	border: none;
-	background: #1ed760;
-	color: white;
-	cursor: pointer;
-	font-size: 1rem;
-	border-radius: 0px 5px 5px 0px;
-	padding: 14px 0px 16px 0px;
-	width: 5%;
-}
 
 /*HOME_BUTTONS*/
 
@@ -108,4 +82,13 @@
 
 .bac:hover {
 	box-shadow: inset 0 0 0 1000px rgba(67,124,144,0.5);
+}
+
+@keyframes fade {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
 }

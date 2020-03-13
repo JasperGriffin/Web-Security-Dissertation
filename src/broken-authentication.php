@@ -11,28 +11,21 @@
   </head>
   <body>
 
-  <div class="video-container">
-    <video autoplay muted loop class="default-vid">
-      <source src="/img/video/broken-authentication.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="colour-overlay"></div>
-
+    <div class="video-container">
+      <video autoplay muted loop class="default-vid">
+        <source src="/img/video/broken-authentication.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="colour-overlay"></div>
     <div class="subheadings">
       <h1>Broken authentication</h1>
-      <p>Stealing cookies</p>
-      <p>Credential stuffing</p>
-      <p>login with 'admin' 'admin'</p>
-      <p>brute force session ids</p>
-      <!-- Paragraph explaining sql -->
+      <div class="anchor-buttons">
+        <button class="first-child"><a href="#Introduction">Introduction</a></button>
+        <button class="middle-child"><a href="#Risks">Risks</a></button>
+        <!--Stealing cookies, credential stuffing, login with admin admin, brute force session ids -->
+        <button class="last-child"><a href="#Solutions">Solutions</a></button>
+        <!--Two factor authorisation, password complexity, locking accoutns with too many attempts-->
+      </div>
     </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <p> Fixes: </br>
-    - Two factor authentication
-    - Password complexity (One upper/lower case, numbers and symbols)
-    - Locking accounts with too many incorrect passwords
-    </p>
   </body>
 </html>
