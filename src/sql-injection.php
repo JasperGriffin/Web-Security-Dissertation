@@ -1,17 +1,16 @@
 <?php
 
   require_once "templates/header.php";
-
-  include('C:\xampp\htdocs\public\assets\html\sql-injection.html');
-
-  include('C:\xampp\htdocs\mvc\views\home-view.php');
-  include('C:\xampp\htdocs\mvc\models\home-model.php');
-  include('C:\xampp\htdocs\mvc\controllers\home-controller.php');
-  include('C:\xampp\htdocs\src\search.php');
+  include "../public/assets/html/sql-injection.html";
+  include "../mvc/views/home-view.php";
+  include "../mvc/models/home-model.php";
+  include "../mvc/controllers/home-controller.php";
+  include "search.php";
 
 	//fetching home_buttons table with db connection
 	$controller = new home_controller();
 	$data = $controller->fetchData();
+
 
 
 

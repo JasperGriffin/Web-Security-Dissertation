@@ -6,7 +6,6 @@
 }
 
 /*Navbar changes*/
-
 .navbar li p {
   color: white;
 }
@@ -17,6 +16,12 @@
 }
 
 /*template changes*/
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 .video-container {
 	width: 100%;
   height: 100%;
@@ -41,15 +46,6 @@
   width: 100%;
   height: 100%;
   top: 0;
-}
-
-a {
-	text-decoration: none;
-	color: inherit;
-}
-
-.subheadings {
-	padding-bottom: 400px;
 }
 
 .subheadings h1 {
