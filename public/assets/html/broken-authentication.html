@@ -1,24 +1,24 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/public/assets/css/page_template.css">
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sql-injection.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/broken-authentication.css">
   </head>
   <body>
+
     <div class="video-container">
       <video autoplay muted loop class="default-vid">
-        <source src="/img/video/sql-injection.mp4" type="video/mp4">
+        <source src="/img/video/broken-authentication.mp4" type="video/mp4">
       </video>
     </div>
     <div class="colour-overlay"></div>
-
     <div class="subheadings">
-      <h1>Injection attacks</h1>
-      <!-- Blind | information schema exploits | second order (Maybe as buttons)-->
+      <h1>Broken authentication</h1>
       <div class="anchor-buttons">
         <button class="first-child"><a href="#Introduction">Introduction</a></button>
         <button class="middle-child"><a href="#Risks">Risks</a></button>
+        <!--Stealing cookies, credential stuffing, login with admin admin, brute force session ids -->
         <button class="last-child"><a href="#Solutions">Solutions</a></button>
+        <!--Two factor authorisation, password complexity, locking accoutns with too many attempts-->
       </div>
     </div>
 
@@ -51,12 +51,5 @@
           </p>
         </div>
     </div>
-
-    <!-- New search bar -->
-    <!--<form class="search" method="GET">
-        On the same line to avoid gaps between elements
-        <input type="text" name="search" placeholder="Search..." class="submit-txt"><button type="submit" name="submit" class="submit-btn"><i class="fa fa-search"></i></button>
-    </form>-->
-
   </body>
 </html>

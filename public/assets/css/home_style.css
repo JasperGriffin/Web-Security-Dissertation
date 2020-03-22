@@ -11,15 +11,14 @@
 	animation: fade 1s;
 }
 
-.header h1, hr {
+.header-container h1, hr {
 	text-align:center;
 	margin: 0 auto;
 }
 
-.header h1 {
+.header-container h1 {
 	padding: 30px;
 }
-
 
 /*HOME_BUTTONS*/
 

@@ -8,6 +8,11 @@
   background: rgb(246,16,103,0.3);
 }
 
+.header-overlay {
+  background: rgb(246,16,103);
+}
+
+
 /*Search bar changes*/
 
 .search {
