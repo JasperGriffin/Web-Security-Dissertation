@@ -11,7 +11,7 @@ p {
 	color: #24252A;
 }
 
-header {
+nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -28,7 +28,7 @@ form {
 	background: transparent;
 }
 
-.navbar li, p {
+.navbar li, p, {
 	display: inline;
 	transition: all 0.3s ease 0s;
 }
@@ -45,7 +45,7 @@ form {
 	background: none;
 }
 
-.navbar button:hover {
+ .navbar-left button:hover {
 	transition: all 1s ease 0s;
 	background-color: #f2f2f2;
 }
@@ -57,9 +57,18 @@ form {
 	cursor: pointer;
 	transition: all 0.3s ease 0s;
 	background: #1ed760;
+	font-size: 15px;
+	color: white;
 }
 
-.login-btn p {
-	color: white;
-	font-size: 15px;
+.logged-in {
+	display: inline;
+	position: absolute;
+	right: 0;
+	padding-right: 10%;
+}
+
+.navbar-left {
+	display: inline;
+	position: absolute;
 }

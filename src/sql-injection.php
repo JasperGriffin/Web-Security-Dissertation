@@ -2,16 +2,28 @@
 
   require_once "templates/header.php";
   include "../public/assets/html/sql-injection.html";
+
+  //search bar
   include "../mvc/views/home-view.php";
   include "../mvc/models/home-model.php";
   include "../mvc/controllers/home-controller.php";
-  include "search.php";
+
+  if (isset($_GET['submit']) && !empty($_GET['search'])) {
+
+		$search = $_GET['search'];
+
+    //fetch user data //controller
+		$controller = new home_controller();
+		$data = $controller->searchData($search);
+
+    $view = new home_view();
+  	$view->printQuery($data);
+
+  }
 
 	//fetching home_buttons table with db connection
 	$controller = new home_controller();
 	$data = $controller->fetchData();
-
-
 
 
   //%' OR '%
@@ -41,4 +53,7 @@
 
   //gets schema of current
   //%sql' UNION SELECT schema()-- '
+
+  //To fix
+  //prepared statement
 ?>

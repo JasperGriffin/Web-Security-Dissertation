@@ -2,12 +2,11 @@
 
 	require_once "templates/header.php";
 
-	include('C:\xampp\htdocs\public\assets\html\home.html'); 
+	include('C:\xampp\htdocs\public\assets\html\home.html');
 
 	include "mvc/views/home-view.php";
 	include "mvc/models/home-model.php";
 	include "mvc/controllers/home-controller.php";
-	include "search.php";
 
 	//fetching home_buttons table with db connection
 	$controller = new home_controller();
