@@ -1,5 +1,7 @@
 <?php
 
-  echo "profile page";
+  include "../templates/header.php";
+  echo $_SESSION['userUId'];
+
 
 ?>

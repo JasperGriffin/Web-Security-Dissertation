@@ -32,7 +32,7 @@
 						<?php if (isset($_SESSION['userId'])): ?>
 
 							<div class='logged-in'>
-								<form action='src/account/profile.php' method='get'>
+								<form action='/src/account/profile.php' method='get'>
 									<?php echo "<li><button><p>$_SESSION[userUId]</p></button></li>"?>
 								</form>
 

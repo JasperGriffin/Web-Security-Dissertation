@@ -15,12 +15,11 @@ class user_controller extends user_model {
 
     $this->sql = "SELECT user_id, username, pwd FROM users";
 
-    //Insecure login
     if (!is_null($this->conn)) {
 
-      $result = mysqli_query($this->conn, $this->sql);
+      $query = mysqli_query($this->conn, $this->sql);
 
-			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+			while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
 
         if ($username == $row['username'] && $password == $row['pwd']) {
 
@@ -39,7 +38,28 @@ class user_controller extends user_model {
   }
 
   public function secureLogin($username, $password) {
+    //prepared statements + regex'd parameters to store variables
+  }
 
+  public function insecureSignup($email, $username, $password, $hashedPwd, $ip, $dateCreated, $lastLogin) {
+
+  }
+
+  public function checkUsername($username) {
+
+    $this->sql = "SELECT username FROM users";
+
+    if (!is_null($this->conn)) {
+
+      $query = mysqli_query($this->conn, $this->sql);
+      while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+
+        if ($username == $row['username']) {
+
+          return true;
+        }
+      }
+    }
   }
 
 }
