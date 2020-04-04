@@ -13,15 +13,6 @@
     $controller = new user_controller();
     $check = $controller->checkUsername($username);
 
-    //check that email exists
-    //filter_validate_email
-
-    //check username with regex
-
-    //check password with regex (or maybe not)
-    //check that password and repeatPassword are the same
-
-
     //check if any fields are empty
     if (empty($email) || empty($username) || empty($password) || empty($repeatPassword)) {
       header("Location: http://localhost/src/account/signup.php?error=emptyfield");
@@ -55,12 +46,10 @@
     else {
 
       $ip = $_SERVER['REMOTE_ADDR'];
-      //$dateCreated;
-      //$lastLogin;
+      $dateCreated = date("Y-m-d");
+      $lastLogin = date("Y-m-d");
 
-      //$email, $username, $password, $hashedPwd, $ip, $dateCreated, $lastLogin
-      header("Location: http://localhost/index.php?email=$email.usr=$username.pwd=$password");
-      exit();
+      $signup = $controller->insecureSignup($email, $username, $password, $repeatPassword, $ip, $dateCreated, $lastLogin);
     }
   }
 

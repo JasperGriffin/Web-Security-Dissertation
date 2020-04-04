@@ -4,6 +4,7 @@ class user_controller extends user_model {
 
   private $conn;
   private $sql;
+  private $query;
 
   public function __construct() {
 
@@ -17,9 +18,9 @@ class user_controller extends user_model {
 
     if (!is_null($this->conn)) {
 
-      $query = mysqli_query($this->conn, $this->sql);
+      $this->query = mysqli_query($this->conn, $this->sql);
 
-			while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+			while ($row = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
 
         if ($username == $row['username'] && $password == $row['pwd']) {
 
@@ -39,9 +40,31 @@ class user_controller extends user_model {
 
   public function secureLogin($username, $password) {
     //prepared statements + regex'd parameters to store variables
+    //https://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php
   }
 
-  public function insecureSignup($email, $username, $password, $hashedPwd, $ip, $dateCreated, $lastLogin) {
+  public function insecureSignup($email, $username, $password, $repeatPassword, $ip, $dateCreated, $lastLogin) {
+
+    $hashedPwd = password_hash($repeatPassword, PASSWORD_DEFAULT);
+
+    $this->sql = "INSERT INTO users (username, pwd, hashed_pwd, email, ip, date_created, last_login) VALUES ('$username', '$password', '$hashedPwd', '$email', '$ip', '$dateCreated', '$lastLogin')";
+
+    if (!is_null($this->conn)) {
+
+      $this->query = mysqli_query($this->conn, $this->sql);
+
+      if ($this->query) {
+        header("Location: ../../index.php?signup=success");
+        exit();
+      }
+      else {
+        header("Location: ../../src/account/signup.php?signup=error");
+        exit();
+      }
+    }
+  }
+
+  public function secureSignup() {
 
   }
 
@@ -51,8 +74,8 @@ class user_controller extends user_model {
 
     if (!is_null($this->conn)) {
 
-      $query = mysqli_query($this->conn, $this->sql);
-      while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+      $this->query = mysqli_query($this->conn, $this->sql);
+      while($row = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
 
         if ($username == $row['username']) {
 
