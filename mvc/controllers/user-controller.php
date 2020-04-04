@@ -14,6 +14,7 @@ class user_controller extends user_model {
 
   public function insecureLogin($username, $password) {
 
+    //where username =  $username (since usernames are unique)
     $this->sql = "SELECT user_id, username, pwd FROM users";
 
     if (!is_null($this->conn)) {
@@ -25,6 +26,8 @@ class user_controller extends user_model {
         if ($username == $row['username'] && $password == $row['pwd']) {
 
           session_start();
+
+          $_SESSION['loggedin'] = true;
           $_SESSION['userId'] = $row['user_id'];
           $_SESSION['userUId'] = $row['username'];
 
@@ -41,6 +44,9 @@ class user_controller extends user_model {
   public function secureLogin($username, $password) {
     //prepared statements + regex'd parameters to store variables
     //https://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php
+
+
+    //two factor authorisation
   }
 
   public function insecureSignup($email, $username, $password, $repeatPassword, $ip, $dateCreated, $lastLogin) {
@@ -51,6 +57,7 @@ class user_controller extends user_model {
 
     if (!is_null($this->conn)) {
 
+      //query(connection, INSERT INTO users ())
       $this->query = mysqli_query($this->conn, $this->sql);
 
       if ($this->query) {
@@ -58,7 +65,7 @@ class user_controller extends user_model {
         exit();
       }
       else {
-        header("Location: ../../src/account/signup.php?signup=error");
+        header("Location: ../../src/account/signup.php?signup=error.$email.$username.$password.$ip.$dateCreated");
         exit();
       }
     }
@@ -70,6 +77,8 @@ class user_controller extends user_model {
 
   public function checkUsername($username) {
 
+    //where username = $username
+    //if row is more than 0, return true
     $this->sql = "SELECT username FROM users";
 
     if (!is_null($this->conn)) {

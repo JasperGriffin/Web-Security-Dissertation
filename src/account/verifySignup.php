@@ -49,6 +49,8 @@
       $dateCreated = date("Y-m-d");
       $lastLogin = date("Y-m-d");
 
+      //store as array, too many parameters
+
       $signup = $controller->insecureSignup($email, $username, $password, $repeatPassword, $ip, $dateCreated, $lastLogin);
     }
   }
