@@ -19,7 +19,7 @@
       //https://stackoverflow.com/questions/14523468/redirecting-to-previous-page-after-login-php
 
       $controller = new user_controller();
-      $login = $controller->insecureLogin($username, $password);
+      $login = $controller->login($username, $password);
 
     }
   }

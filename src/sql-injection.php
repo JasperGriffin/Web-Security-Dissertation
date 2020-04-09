@@ -25,6 +25,7 @@
 	$controller = new home_controller();
 	$data = $controller->fetchData();
 
+  //$this->sql = "SELECT title FROM home_buttons WHERE title LIKE '$query%'";
 
   //%' OR '%
   //%' OR '1' = '1
