@@ -1,6 +1,6 @@
 <?php
 
-class user_controller extends user_model {
+class user_login_controller extends user_model {
 
   private $conn;
   private $sql;
@@ -13,32 +13,48 @@ class user_controller extends user_model {
     $this->conn = $db->connect();
   }
 
-  public function login($username, $password) {
+  public function insecureLogin($username, $password) {
 
-    $this->sql = "SELECT user_id, username, pwd FROM users WHERE username = '$username' and pwd = '$password'";
+    //$this->sql = "SELECT user_id, username, pwd FROM users WHERE username = '$username' and pwd = '$password'";
+    $this->sql = "SELECT user_id, username, pwd FROM users WHERE username = '$username'";
 
     if ($this->conn) {
 
       $this->query = mysqli_query($this->conn, $this->sql);
 
       if ($this->query) {
+
         if (mysqli_num_rows($this->query) == 1) {
+
+          $row = mysqli_fetch_array($this->query, MYSQLI_ASSOC);
 
           session_start();
           $_SESSION['loggedin'] = true;
           $_SESSION['userId'] = $row['user_id'];
           $_SESSION['userUId'] = $row['username'];
-          $id = $row['user_id'];
 
+          self::updateLogin($id);
         }
+        else {
+          header("Location: ../../src/account/login.php?incorrect_login.$this->sql");
+          exit();
+        }
+      }
+      else {
+        $err = "Error_code:" . mysqli_errno($this->conn);
+        header("Location: ../../src/account/login.php?invalid_query.$err");
+        exit();
       }
     }
   }
 
 
-  public function insecureLogin($username, $password) {
+  public function secureLogin($username, $password) {
 
-    //where username =  $username (since usernames are unique)
+    //prepared statements + regex'd parameters to store variables
+    //https://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php
+    //two factor authorisation (as separate method)
+
     $this->sql = "SELECT user_id, username, hashed_pwd FROM users WHERE username = '$username'";
 
     if ($this->conn) {
@@ -61,7 +77,13 @@ class user_controller extends user_model {
             $_SESSION['userUId'] = $row['username'];
             $id = $row['user_id'];
 
-            self::updateLogin($id);
+            $updateLogin = self::updateLogin($id);
+
+            if ($updateLogin == true) {
+
+              //two-factor-authroiosation() 
+
+            }
           }
           else {
             header("Location: ../../index.php?password_unverified");
@@ -82,12 +104,6 @@ class user_controller extends user_model {
     }
   }
 
-  public function secureLogin($username, $password) {
-    //prepared statements + regex'd parameters to store variables
-    //https://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php
-    //two factor authorisation (as separate method)
-  }
-
   public function updateLogin($id) {
 
     //update last_login with new update
@@ -100,7 +116,7 @@ class user_controller extends user_model {
       $this->query = mysqli_query($this->conn, $this->sql);
 
       if ($this->query) {
-        header("Location: ../../index.php?login=successful");
+        header("Location: ../../index.php?login=successful_through_update");
         exit();
       }
       else {
@@ -109,48 +125,5 @@ class user_controller extends user_model {
       }
     }
   }
-
-  public function insecureSignup($userCredentials) {
-
-    // array($username, $password, $email, $ip, $dateCreated, $lastLogin);
-    $hashedPwd = password_hash($userCredentials[1], PASSWORD_DEFAULT);
-    array_splice($userCredentials, 2, 0, $hashedPwd);
-    $usrStr = implode("', '", $userCredentials);
-
-    $this->sql = "INSERT INTO users (username, pwd, hashed_pwd, email, ip, date_created, last_login) VALUES ('$usrStr')";
-
-    if (!is_null($this->conn)) {
-
-      $this->query = mysqli_query($this->conn, $this->sql);
-
-      if ($this->query) {
-        header("Location: ../../index.php?signup=success");
-        exit();
-      }
-      else {
-        header("Location: ../../src/account/signup.php?signup=error");
-        exit();
-      }
-    }
-  }
-
-
-
-  public function checkUsername($username) {
-
-    //where username = $username
-    //if row is more than 0, return true
-    $this->sql = "SELECT username FROM users WHERE username = '$username'";
-
-    if ($this->conn) {
-
-      $this->query = mysqli_query($this->conn, $this->sql);
-
-      if (mysqli_num_rows($this->query) > 0) {
-        return true;
-      }
-    }
-  }
-
 }
 ?>

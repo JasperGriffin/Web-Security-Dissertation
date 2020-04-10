@@ -1,7 +1,7 @@
 <?php
 
   include "../../mvc/models/user-model.php";
-  include "../../mvc/controllers/user-controller.php";
+  include "../../mvc/controllers/user-signup-controller.php";
 
   if (isset($_POST['signup'])) {
 
@@ -10,7 +10,7 @@
     $password = $_POST['password'];
     $repeatPassword = $_POST['repeat-password'];
 
-    $controller = new user_controller();
+    $controller = new user_signup_controller();
     $check = $controller->checkUsername($username);
 
     //check if any fields are empty

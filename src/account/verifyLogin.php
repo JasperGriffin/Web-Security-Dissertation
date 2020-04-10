@@ -1,7 +1,7 @@
 <?php
 
   include "../../mvc/models/user-model.php";
-  include "../../mvc/controllers/user-controller.php";
+  include "../../mvc/controllers/user-login-controller.php";
 
   if (isset($_GET['login'])) {
 
@@ -18,8 +18,8 @@
       //store previous user page as $_GET and send along with usernamen nad password
       //https://stackoverflow.com/questions/14523468/redirecting-to-previous-page-after-login-php
 
-      $controller = new user_controller();
-      $login = $controller->login($username, $password);
+      $controller = new user_login_controller();
+      $login = $controller->insecureLogin($username, $password);
 
     }
   }
