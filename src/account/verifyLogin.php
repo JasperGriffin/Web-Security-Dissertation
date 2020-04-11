@@ -10,9 +10,12 @@
 
     if (empty($username) || empty($password)) {
 
-      header("Location: http://localhost/src/account/login.php");
+      header("Location: login.php?empty_fields");
       exit();
     }
+
+    //preg_match(regex) else if {}
+
     else {
 
       //store previous user page as $_GET and send along with usernamen nad password

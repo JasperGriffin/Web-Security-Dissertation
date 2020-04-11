@@ -15,6 +15,8 @@ class user_signup_controller extends user_model {
 
   public function insecureSignup($userCredentials) {
 
+    //admin'--'
+
     // array($username, $password, $email, $ip, $dateCreated, $lastLogin);
     $hashedPwd = password_hash($userCredentials[1], PASSWORD_DEFAULT);
     array_splice($userCredentials, 2, 0, $hashedPwd);

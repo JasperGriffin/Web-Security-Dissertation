@@ -15,8 +15,12 @@ class user_login_controller extends user_model {
 
   public function insecureLogin($username, $password) {
 
-    //$this->sql = "SELECT user_id, username, pwd FROM users WHERE username = '$username' and pwd = '$password'";
-    $this->sql = "SELECT user_id, username, pwd FROM users WHERE username = '$username'";
+    //$username = $this->conn->real_escape_string($username);
+
+    //WHERE username = 'admin ' or '1 = '1' and pwd = 'lkjhkjhgkldjfhg";
+    $this->sql = "SELECT user_id, username, pwd FROM users WHERE username = '$username' and pwd = '$password'";
+
+    //For security reasons, mysqli_query will not execute multiple queries to prevent SQL injections.
 
     if ($this->conn) {
 
@@ -27,23 +31,28 @@ class user_login_controller extends user_model {
         if (mysqli_num_rows($this->query) == 1) {
 
           $row = mysqli_fetch_array($this->query, MYSQLI_ASSOC);
+          $id = $row['user_id'];
 
           session_start();
           $_SESSION['loggedin'] = true;
           $_SESSION['userId'] = $row['user_id'];
           $_SESSION['userUId'] = $row['username'];
 
+          $_SESSION['test'] = $this->sql;
+
           self::updateLogin($id);
         }
         else {
-          header("Location: ../../src/account/login.php?incorrect_login.$this->sql");
-          exit();
+          /*header("Location: ../../src/account/login.php?incorrect_login.$this->sql");
+          exit();*/
+          echo "mysql_num_rows == 0<br>" . $this->sql;
         }
       }
       else {
-        $err = "Error_code:" . mysqli_errno($this->conn);
+        /*$err = "Error_code:" . mysqli_errno($this->conn);
         header("Location: ../../src/account/login.php?invalid_query.$err");
-        exit();
+        exit();*/
+        echo "invalid mysqli query<br>" . $this->sql;
       }
     }
   }
@@ -81,7 +90,7 @@ class user_login_controller extends user_model {
 
             if ($updateLogin == true) {
 
-              //two-factor-authroiosation() 
+              //two-factor-authroiosation()
 
             }
           }
@@ -89,7 +98,6 @@ class user_login_controller extends user_model {
             header("Location: ../../index.php?password_unverified");
             exit();
           }
-
         }
         else {
           header("Location: ../../src/account/login.php?incorrect_login.$this->sql");
@@ -116,7 +124,7 @@ class user_login_controller extends user_model {
       $this->query = mysqli_query($this->conn, $this->sql);
 
       if ($this->query) {
-        header("Location: ../../index.php?login=successful_through_update");
+        header("Location: ../../index.php?login=successful.id=$id");
         exit();
       }
       else {
@@ -125,5 +133,6 @@ class user_login_controller extends user_model {
       }
     }
   }
+
 }
 ?>

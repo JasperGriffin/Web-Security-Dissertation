@@ -27,16 +27,17 @@
 
     //check that validates username under certain characters
     //future case: force users to have [A-z][1-9]* to increase complexity
-    else if (!preg_match('/^[A-z0-9]{4,20}/', $username)) {
+    /*else if (!preg_match('/^[A-z0-9]{4,20}/', $username)) {
       header("Location: http://localhost/src/account/signup.php?error=invalid_username");
       exit();
-    }
+    }*/
 
     //check that username hasn't been taken
-    else if ($check) {
+    /*else if ($check) {
       header("Location: http://localhost/src/account/signup.php?error=duplicate_username");
       exit();
-    }
+    }*/
+    
     //check that passwords match
     else if ($password !== $repeatPassword) {
       header("Location: http://localhost/src/account/signup.php?error=passwords_mismatch");
