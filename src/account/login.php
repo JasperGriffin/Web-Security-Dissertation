@@ -18,22 +18,36 @@
 
 <html>
   <head>
-    <body>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/login.css">
+  </head>
+  <body>
+
+    <div class="login-container">
 
       <h1>Login</h1>
-
       <h2>Please enter your username and password</h2>
 
-      <!--Vulnerability: using GET request for logins -->
-      <form action="verifyLogin.php" method="GET">
-        <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="Username..."><br>
-        <label for="password">Password:</label>
-        <input type="text" name="password"  placeholder="Password..."><br>
-        <input type="submit" name="login" value="login">
-      </form>
+      <div class="form-container">
+        <!--Vulnerability: using GET request for logins -->
+        <form action="verifyLogin.php" method="POST">
+          <label for="username">Username:</label>
+          <input type="text" name="username" placeholder="Username..."><br>
+          <label for="password">Password:</label>
+          <input type="text" name="password"  placeholder="Password..."><br>
+          <input id="submit" type="submit" name="login" value="login">
 
-      <a href="signup.php">Sign up</a>
-    </body>
-  </head>
+        </form>
+
+        <form action="signup.php" class="register" method="GET">
+          <button>Sign up</button>
+        </form>
+
+      </div>
+
+
+    </div>
+
+
+  </body>
 </html>

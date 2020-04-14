@@ -1,0 +1,10 @@
+
+.login-container {
+  text-align: center;
+}
+
+.register button, .login-container #submit {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
