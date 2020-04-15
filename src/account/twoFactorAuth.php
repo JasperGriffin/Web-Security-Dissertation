@@ -21,6 +21,9 @@
       $_SESSION['userId'] = $id;
       $_SESSION['userUId'] = $username;
 
+      $timerController = new timer();
+      $timer = $timerController->endTimer();  
+
       header("Location: ../../index.php?login=success_with_email");
       exit();
     }

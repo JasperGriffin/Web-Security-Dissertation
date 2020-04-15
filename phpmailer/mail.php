@@ -29,7 +29,7 @@
         $mail->Subject = 'Jaspergriffin.com [DO NOT REPLY]';
         $mail->Body    = 'This is the HTML message body <b>in bold!</b><br>'.$token;
 
-        $mail->setFrom("jaspergriffinjsg@hotmail.co.uk", "Jsasper Griffin");
+        $mail->setFrom("jaspergriffinjsg@hotmail.co.uk", "Jasper Griffin");
         $mail->addAddress($email);      //user email
 
         $mail->Send();

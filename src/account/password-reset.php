@@ -4,7 +4,8 @@
 
     //$controller = new user_login_controller();
     //$passwordReset = $controller->passwordReset();
-    echo "test";
+
+    $username = $_POST['username'];
   }
 
 

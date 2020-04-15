@@ -2,6 +2,7 @@
 
 include "../../mvc/views/user-view.php";
 include "../../phpmailer/mail.php";
+include "../../phpmailer/timer.php";
 
 class user_login_controller extends user_model {
 
@@ -92,23 +93,19 @@ class user_login_controller extends user_model {
 
       //$stmt = mysqli_stmt_init($this->conn);
 
-        //checks if sql works within the database
+      //checks if sql works within the database
       if ($stmt = $this->conn->prepare($this->sql)) {
 
           //"s" being a string data type that's being passed in
-          //mysqli_stmt_bind_param($stmt, "s", $username);
           $stmt->bind_param('s', $username);
 
           //runs sql query
-          //mysqli_stmt_execute($stmt);
 
           //$stmt->execute();
           if ($stmt->execute()) {
 
             //stores sql result back into $stmt
-            //$result = mysqli_stmt_store_result($stmt);
             $stmt->store_result();
-            //get_result() -> fetch_assoc
 
             $num_of_rows = $stmt->num_rows;
 
@@ -142,6 +139,9 @@ class user_login_controller extends user_model {
                   else {
 
                   /*two factor authorisation*/
+
+                  $timerController = new timer();
+                  $timer = $timerController->startTimer();
 
                   //generate token and timer
                   $token = bin2hex(random_bytes(3));
