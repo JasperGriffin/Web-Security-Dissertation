@@ -2,7 +2,6 @@
 
 include "../../mvc/views/user-view.php";
 include "../../phpmailer/mail.php";
-include "../../phpmailer/timer.php";
 
 class user_login_controller extends user_model {
 
@@ -138,22 +137,9 @@ class user_login_controller extends user_model {
                   }
                   else {
 
-                  /*two factor authorisation*/
+                    /*two factor authorisation*/
+                    self::setTwoFactorAuth($id, $username, $email);
 
-                  $timerController = new timer();
-                  $timer = $timerController->startTimer();
-
-                  //generate token and timer
-                  $token = bin2hex(random_bytes(3));
-
-                  //send Email
-                  //include "../../phpmailer/mail.php";
-                  $mailController = new mail();
-                  $mail = $mailController->sendEmail($token, $email);
-
-                  //check if user input matches token
-                  $view = new user_view();
-                  $view->sendForm($token, $id, $username);
 
                   }
 
@@ -206,6 +192,25 @@ class user_login_controller extends user_model {
         return false;
       }
     }
+  }
+
+  public function setTwoFactorAuth($id, $username, $email) {
+
+    $timeStart  = time();
+
+    //generate token and timer
+    $token = bin2hex(random_bytes(3));
+
+    $counter = 0;
+
+    //send Email
+    //include "../../phpmailer/mail.php";
+    $mailController = new mail();
+    $mail = $mailController->sendEmail($token, $email);
+
+    //check if user input matches token
+    $view = new user_view();
+    $view->sendForm($token, $id, $username, $email, $timeStart, $counter);
   }
 
 

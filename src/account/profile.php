@@ -9,13 +9,6 @@
     $username = $_SESSION['userUId'];
     $id = $_SESSION['userId'];
 
-    //through view model
-    echo "
-      <form action='password-reset.php' method='post'>
-        <input type='submit' name='btnReset' value='Reset'/>
-        <input type='hidden' name='username' value='$username'/>
-      </form>
-    ";
 
     //if (isset($_POST['form-submit'])) {}
 
@@ -27,3 +20,14 @@
 
   }
 ?>
+
+<html>
+  <head>
+    <title>Profile</title>
+  </head>
+  <body>
+    <form action='password-reset.php' method='post'>
+      <button type="submit">Password reset</button>
+    </form>
+  </body>
+</html>

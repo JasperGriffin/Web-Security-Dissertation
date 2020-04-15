@@ -1,46 +1,58 @@
 <?php
 
-  //include "../templates/header.php";
-  include "../../mvc/views/user-view.php";
 
-  //    public function sendForm($token, $id, $username) {
+  //include "../../mvc/views/user-view.php";
+  include "../../mvc/models/user-model.php";
+  include "../../mvc/controllers/user-login-controller.php";
+
   if (isset($_POST['submit'])) {
 
     $code = $_POST['code'];
     $token = $_POST['token'];
     $id = $_POST['id'];
     $username = $_POST['username'];
-    $view = new user_view();
+    $email = $_POST['email'];
+    $timeStart = $_POST['timeStart'];
+    $counter = $_POST['counter'];
 
-    $counter = 0;
+    $view2 = new user_view();
+    $timeEnd = time();
 
-    if ($code == $token) {
+    $difference = $timeEnd - $timeStart;
 
+
+    //difference -> token experiened
+    //counter -> counter put in too many times -> send
+
+    if ($difference > 50) {
+
+      $controller = new user_login_controller();
+      $twoFactorAuth = $controller->setTwoFactorAuth($id, $username, $email);
+      echo "Session timeout";
+    }
+    else if ($counter > 3) {
+      echo "Max submission reached <br>";
+      $controller = new user_login_controller();
+      $twoFactorAuth = $controller->setTwoFactorAuth($id, $username, $email);
+      echo "Generated a new token";
+
+    }
+    else if ($code == $token) {
       session_start();
       $_SESSION['loggedin'] = true;
       $_SESSION['userId'] = $id;
       $_SESSION['userUId'] = $username;
 
-      $timerController = new timer();
-      $timer = $timerController->endTimer();  
-
-      header("Location: ../../index.php?login=success_with_email");
+      header("Location: ../../index.php?login=success_with_email_difference=_$difference");
       exit();
     }
     else {
 
-      if ($counter < 3) {
-        $view->sendForm($token, $id, $username);
-        $counter++;
-
-        echo "<br>Authentication code is incorrect.Try again.<br>";
-        echo $token . "         " . $counter;
-      }
-      else {
-        echo "too many tries";
-      }
-
+      echo "incorrect login <br> $counter";
+      $counter++;
+      $view2->sendForm($token, $id, $username, $email, $timeStart, $counter);
     }
+
 
   }
 

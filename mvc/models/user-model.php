@@ -11,7 +11,7 @@ class user_model {
 
   public function connect() {
 
-    $this->connection = mysqli_connect($this->servername, $this->username, $this->password, $this->user);
+    $this->connection = mysqli_connect($this->servername, $this->username, $this->password, $this->user);    
 
     if ($this->connection->connect_error) {
         die("Connection failed: " . $this->connection->connect_error);
