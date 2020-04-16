@@ -125,10 +125,7 @@ class user_login_controller extends user_model {
                   //if ip doesn't = $ip ->two factor authorisation
                   if ($currentIP != $ip) {
 
-                    session_start();
-                    $_SESSION['loggedin'] = true;
-                    $_SESSION['userId'] = $id;
-                    $_SESSION['userUId'] = $username;
+                    self::setSession($id, $username);
 
                     $stmt->close();
 
@@ -211,6 +208,18 @@ class user_login_controller extends user_model {
     $view = new user_view();
     $view->sendForm($token, $id, $username, $email, $ip, $timeStart, $counter);
   }
+
+
+  public function setSession($id, $username) {
+
+    session_start();
+    session_regenerate_id(TRUE);
+
+    $_SESSION['loggedin'] = true;
+    $_SESSION['userId'] = $id;
+    $_SESSION['userUId'] = $username;
+  }
+
 
   public function passwordReset($username, $password) {
 
