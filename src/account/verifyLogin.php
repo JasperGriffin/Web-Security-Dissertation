@@ -14,12 +14,11 @@
       exit();
     }
 
-    //preg_match(regex) else if {}
-
     else {
 
       //store previous user page as $_GET and send along with usernamen nad password
       //https://stackoverflow.com/questions/14523468/redirecting-to-previous-page-after-login-php
+
 
       $controller = new user_login_controller();
       $login = $controller->secureLogin($username, $password);

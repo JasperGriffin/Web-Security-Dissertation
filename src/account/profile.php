@@ -4,6 +4,12 @@
   include "../../mvc/models/user-model.php";
   include "../../mvc/controllers/user-login-controller.php";
 
+  $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+  if (strpos($url, "password_reset") == true) {
+    echo "<p>Password reset successfully</p><br>";
+  }
+
   if (isset($_SESSION['userId'])) {
 
     $username = $_SESSION['userUId'];
@@ -14,10 +20,8 @@
 
   }
   else {
+    
     die("You must be logged in");
-
-
-
   }
 ?>
 
@@ -26,7 +30,7 @@
     <title>Profile</title>
   </head>
   <body>
-    <form action='password-reset.php' method='post'>
+    <form action='passwordReset.php' method='post'>
       <button type="submit">Password reset</button>
     </form>
   </body>

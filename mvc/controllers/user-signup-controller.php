@@ -15,7 +15,7 @@ class user_signup_controller extends user_model {
 
   public function insecureSignup($userCredentials) {
 
-    //admin'--'
+    //second order sql injection: admin''--'' -> admin'--' in db
 
     // array($username, $password, $email, $ip, $dateCreated, $lastLogin);
     $hashedPwd = password_hash($userCredentials[1], PASSWORD_DEFAULT);
@@ -39,6 +39,12 @@ class user_signup_controller extends user_model {
     }
   }
 
+  public function secureSignup($userCredentials) {
+
+
+
+  }
+
   public function checkUsername($username) {
 
     $this->sql = "SELECT username FROM users WHERE username = '$username'";
@@ -47,7 +53,7 @@ class user_signup_controller extends user_model {
 
       $this->query = mysqli_query($this->conn, $this->sql);
 
-      if (mysqli_num_rows($this->query) > 0) {
+      if (mysqli_num_rows($this->query) == 1) {
         return true;
       }
     }

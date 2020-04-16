@@ -10,8 +10,8 @@
   //error checking
   $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-  if (strpos($url, "invalid_query") == true) {
-    echo "<p>Error:</p>";
+  if (strpos($url, "empty_fields") == true) {
+    echo "<p>Please enter all fields</p>";
   }
 
  ?>

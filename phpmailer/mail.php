@@ -3,6 +3,7 @@
   require "includes/PHPMailer.php";
   require "includes/SMTP.php";
   require "includes/Exception.php";
+  //include "../mvc/views/user-view.php";
 
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\SMTP;
@@ -10,7 +11,7 @@
 
   class mail {
 
-    public function sendEmail($token, $email) {
+    public function sendEmail($token, $username, $email, $ip) {
 
       $mail = new PHPMailer(true);
 
@@ -25,9 +26,12 @@
         $mail->SMTPSecure = "tls";         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
         $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
+        $view = new user_view();
+        $message = $view->sendMessage($token, $username, $ip);
+
         $mail->isHTML(true);
         $mail->Subject = 'Jaspergriffin.com [DO NOT REPLY]';
-        $mail->Body    = 'This is the HTML message body <b>in bold!</b><br>'.$token;
+        $mail->Body    = $message;
 
         $mail->setFrom("jaspergriffinjsg@hotmail.co.uk", "Jasper Griffin");
         $mail->addAddress($email);      //user email

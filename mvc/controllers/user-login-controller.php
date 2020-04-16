@@ -138,13 +138,12 @@ class user_login_controller extends user_model {
                   else {
 
                     /*two factor authorisation*/
-                    self::setTwoFactorAuth($id, $username, $email);
-
+                    self::setTwoFactorAuth($id, $username, $email, $ip);
 
                   }
-
                 }
                 else {
+                  //malicious users can use this error message to know that user with this username exists -> second order sql injection
                   header("Location: ../../src/account/login.php?incorrect_password");
                   exit();
                 }
@@ -194,7 +193,7 @@ class user_login_controller extends user_model {
     }
   }
 
-  public function setTwoFactorAuth($id, $username, $email) {
+  public function setTwoFactorAuth($id, $username, $email, $ip) {
 
     $timeStart  = time();
 
@@ -206,11 +205,38 @@ class user_login_controller extends user_model {
     //send Email
     //include "../../phpmailer/mail.php";
     $mailController = new mail();
-    $mail = $mailController->sendEmail($token, $email);
+    $mail = $mailController->sendEmail($token, $username, $email, $ip);
 
     //check if user input matches token
     $view = new user_view();
-    $view->sendForm($token, $id, $username, $email, $timeStart, $counter);
+    $view->sendForm($token, $id, $username, $email, $ip, $timeStart, $counter);
+  }
+
+  public function passwordReset($username, $password) {
+
+    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+
+    //when logged in as admin'--', password is updated for admin user instead
+    $this->sql = "UPDATE users SET pwd = '$password', hashed_pwd = '$hashedPwd' WHERE username = '$username'";
+
+    if ($this->conn) {
+
+      $this->query = mysqli_query($this->conn, $this->sql);
+
+      if ($this->query) {
+
+        header("Location: ../../src/account/profile.php?password_reset");
+        exit();
+      }
+      else {
+        header("Location: ../../src/account/passwordReset.php?unknown_error");
+        exit();
+      }
+    }
+    else {
+      header("Location: ../../src/account/passwordReset.php?connection_error");
+      exit();
+    }
   }
 
 
