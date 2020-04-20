@@ -7,13 +7,12 @@
 }
 
 .background-container {
-  /* #f2f2f2  ,  #24252A* , #262626/*/
   background-color: #262626;
-  left: 0;
+  text-align: center;
+	left: 0;
   bottom: 0;
   width: 100%;
-  text-align: center;
-  position: static;
+	margin-top: auto;
 }
 
 .background-container h2 {
@@ -23,7 +22,7 @@
 }
 
 .social-media-container {
-	padding: 1.5vh;
+	padding: 2vh;
 }
 
 .copyright-container p {

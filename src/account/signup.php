@@ -41,3 +41,9 @@
     </body>
   </head>
 </html>
+
+<?php
+
+  require_once "../templates/footer.php";
+
+ ?>
