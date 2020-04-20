@@ -3,6 +3,7 @@
   text-align: center;
 }
 
+/*Buttons*/
 .register button, .login-container #submit {
   border: none;
   background: none;

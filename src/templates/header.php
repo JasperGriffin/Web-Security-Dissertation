@@ -1,9 +1,13 @@
 
 <?php
 
-	session_start();
-	$url = $_SERVER['PHP_SELF'];
-	$login = "/src/account/login.php";
+
+	//session_name();
+
+		session_start();
+		$url = $_SERVER['PHP_SELF'];
+		$login = "/src/account/login.php";
+
 
 ?>
 

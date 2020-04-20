@@ -12,6 +12,7 @@
 }
 
 .header-container h1, hr {
+	color: #24252A;
 	text-align:center;
 	margin: 0 auto;
 }
@@ -22,25 +23,29 @@
 
 /*HOME_BUTTONS*/
 
-.home-btn {
+.home-btn-container {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	justify-content: center;
 	grid-gap: 10px; /*5px*/
-	padding: 40px 10% 10% 10%;
+	padding: 40px 10% 40px 10%;
 }
 
-.home-btn button {
+.home-btn-container button {
 	border: none;
 	cursor: pointer;
 	padding-top: 28.125%; /*56.25 (16:9 ratio) 2*/
 	padding-bottom: 28.125%; /*56.25 (16:9 ratio) 2*/
 }
 
-.home-btn p {
+.home-btn-container p {
 	font-size: 2vw;
 	visibility: hidden;
 	transition: 0s;
+}
+
+.info-container {
+	padding: 40px 10% 40px 10%;
 }
 
 .sql {

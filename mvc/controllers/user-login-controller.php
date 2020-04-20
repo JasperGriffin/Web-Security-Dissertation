@@ -123,7 +123,7 @@ class user_login_controller extends user_model {
                   $currentIP = $_SERVER['REMOTE_ADDR'];
 
                   //if ip doesn't = $ip ->two factor authorisation
-                  if ($currentIP != $ip) {
+                  if ($currentIP == $ip) {
 
                     self::setSession($id, $username);
 
