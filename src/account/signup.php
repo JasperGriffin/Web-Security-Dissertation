@@ -24,22 +24,31 @@
 
 <html>
   <head>
-    <body>
-      <form action="verifySignup.php" method="POST">
-
-        <label for="email">Email:</label>
-        <input type="text" name="email" placeholder="Email..."><br>
-        <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="Username..."><br>
-        <label for="password">Password:</label>
-        <input type="text" name="password"  placeholder="Password..."><br>
-        <label for="password">Repeat password:</label>
-        <input type="text" name="repeat-password"  placeholder="Repeat password..."><br>
-        <input type="submit" name="signup" value="Signup">
-
-      </form>
-    </body>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/signup.css">
   </head>
+  <body>
+    <div class="signup-container">
+
+      <h1>Register</h1>
+
+      <div class="form-container">
+
+        <form action="verifySignup.php" method="POST">
+
+          <label for="email">Email:</label>
+          <input type="text" name="email" placeholder="Email..."><br>
+          <label for="username">Username:</label>
+          <input type="text" name="username" placeholder="Username..."><br>
+          <label for="password">Password:</label>
+          <input type="text" name="password"  placeholder="Password..."><br>
+          <label for="password">Repeat password:</label>
+          <input type="text" name="repeat-password"  placeholder="Repeat password..."><br>
+          <input type="submit" name="signup" value="Signup">
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
 
 <?php

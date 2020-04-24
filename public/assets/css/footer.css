@@ -6,6 +6,10 @@
 	margin: 0;
 }
 
+a {
+	text-decoration: none;
+}
+
 .background-container {
   background-color: #262626;
   text-align: center;

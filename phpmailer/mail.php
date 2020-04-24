@@ -40,8 +40,11 @@
 
         $mail->smtpClose();
 
+        return true;
+
       } catch (Exception $e) {
         echo "Email couldn't be sent. Mailer Error: {$mail->ErrorInfo}";
+        header("Location: ../account/login.php?mail_server_disconnected");
       }
     }
 

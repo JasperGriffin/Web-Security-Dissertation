@@ -41,7 +41,38 @@ class user_signup_controller extends user_model {
 
   public function secureSignup($userCredentials) {
 
+    //without input validation, admin'--' can still be stored onto a database even with prepared statements
+    //talk about input validation in diss with mysqli_real_escape_string, check function to check usernames and preg_match with regex
 
+    $hashedPwd = password_hash($userCredentials[1], PASSWORD_DEFAULT);
+    array_splice($userCredentials, 2, 0, $hashedPwd);
+
+    $this->sql = "INSERT INTO users (username, pwd, hashed_pwd, email, ip, date_created, last_login) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    if ($this->conn) {
+
+      if ($stmt = $this->conn->prepare($this->sql)) {
+
+        $types = str_repeat('s', count($userCredentials));
+
+        $stmt->bind_param($types, ...$userCredentials);
+
+        if ($stmt->execute()) {
+          header("Location: ../../index.php?signup=successful");
+          exit();
+          $stmt->close();
+        }
+        else {
+          header("Location: ../../src/account/signup.php?signup_error");
+          exit();
+        }
+      }
+      else {
+        header("Location: ../../index.php?sql_error");
+        exit();
+      }
+
+    }
 
   }
 

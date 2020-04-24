@@ -2,6 +2,7 @@
 
 include "../../mvc/views/user-view.php";
 include "../../phpmailer/mail.php";
+include "../../src/session/sessionHandling.php";
 
 class user_login_controller extends user_model {
 
@@ -124,13 +125,15 @@ class user_login_controller extends user_model {
 
                   //if ip doesn't = $ip ->two factor authorisation
                   if ($currentIP == $ip) {
-
-                    self::setSession($id, $username);
+                  //if ($currentIP) {
 
                     $stmt->close();
 
-                    header("Location: ../../index.php?login=success_with_email");
-                    exit();
+                    $session = new sessionHandling($id, $username);
+                    $session->setWeakSession($id, $username);
+
+
+
                   }
                   else {
 
@@ -204,27 +207,23 @@ class user_login_controller extends user_model {
     $mailController = new mail();
     $mail = $mailController->sendEmail($token, $username, $email, $ip);
 
+
     //check if user input matches token
     $view = new user_view();
     $view->sendForm($token, $id, $username, $email, $ip, $timeStart, $counter);
+
   }
 
 
-  public function setSession($id, $username) {
+  public function passwordReset($password) {
 
-    session_start();
-    session_regenerate_id(TRUE);
-
-    $_SESSION['loggedin'] = true;
-    $_SESSION['userId'] = $id;
-    $_SESSION['userUId'] = $username;
-  }
-
-
-  public function passwordReset($username, $password) {
+    $password = mysqli_real_escape_string($password);
 
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
+    $username =  $_SESSION['userUId'];
+
+    //insecureSignup: admin''--''
     //when logged in as admin'--', password is updated for admin user instead
     $this->sql = "UPDATE users SET pwd = '$password', hashed_pwd = '$hashedPwd' WHERE username = '$username'";
 
@@ -234,7 +233,9 @@ class user_login_controller extends user_model {
 
       if ($this->query) {
 
-        header("Location: ../../src/account/profile.php?password_reset");
+        //check if password is changed
+
+        header("Location: ../../src/account/profile.php?password_reset.$this->sql");
         exit();
       }
       else {

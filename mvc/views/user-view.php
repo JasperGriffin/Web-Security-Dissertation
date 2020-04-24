@@ -4,11 +4,10 @@
 
   class user_view {
 
-    //$view->sendForm($token, $id, $username, $email, $timeStart, $counter);
     public function sendForm($token, $id, $username, $email, $ip, $timeStart, $counter) {
 
       echo "
-        <form action='twoFactorAuth.php' method='POST'>
+        <form action='/src/session/twoFactorAuth.php' method='POST'>
 
           <input type='text' name='code'  placeholder='Enter code'><br>
           <input type='submit' name='submit' value='login'>

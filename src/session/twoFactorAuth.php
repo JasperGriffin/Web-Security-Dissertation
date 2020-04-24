@@ -1,9 +1,8 @@
 <?php
 
-
-  //include "../../mvc/views/user-view.php";
   include "../../mvc/models/user-model.php";
   include "../../mvc/controllers/user-login-controller.php";
+  include_once "sessionHandling.php";
 
   if (isset($_POST['submit'])) {
 
@@ -21,7 +20,6 @@
     $timeEnd = time();
 
     $difference = $timeEnd - $timeStart;
-
 
     //difference -> token experiened
     //counter -> counter put in too many times -> send
@@ -41,17 +39,8 @@
     }
     else if ($code == $token) {
 
-      //make session_start method instead
-
-      /*session_start();
-      $_SESSION['loggedin'] = true;
-      $_SESSION['userId'] = $id;
-      $_SESSION['userUId'] = $username;*/
-
-      $controller->setSession($id, $username); 
-
-      header("Location: ../../index.php?login=success_with_email_difference=_$difference");
-      exit();
+      $session = new sessionHandling($id, $username);
+      $session->setWeakSession($id, $username);
     }
     else {
 
@@ -59,7 +48,6 @@
       $counter++;
       $view->sendForm($token, $id, $username, $email, $ip, $timeStart, $counter);
     }
-
 
   }
 

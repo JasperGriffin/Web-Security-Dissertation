@@ -17,8 +17,7 @@
     else {
 
       //store previous user page as $_GET and send along with usernamen nad password
-      //https://stackoverflow.com/questions/14523468/redirecting-to-previous-page-after-login-php
-
+      //https://stackoverflow.com/questions/14523468/redirecting-to-previous-page-after-login-
 
       $controller = new user_login_controller();
       $login = $controller->secureLogin($username, $password);

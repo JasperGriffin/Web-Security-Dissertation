@@ -45,7 +45,7 @@
     }
 
     //password must contain an upper case letter and must be above 8 letters
-    else if (!preg_match('/(?=.+[a-z])(?=.+[A-Z])(?=.+[0-9])(?=.+[!?<>:@+£$%^&*()~#`¬{};_])[A-z\d\!?<>:@+£$%^&*()~#`¬{};_]{8,}$/', $password)) {
+    else if (!preg_match('/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!?<>:@+£$%^&*()~#`¬{};_])[A-Za-z\d\!?<>:@+£$%^&*()~#`¬{};_]{8,}$/', $password)) {
       header("Location: http://localhost/src/account/signup.php?error=invalid_password");
       exit();
     }
@@ -62,7 +62,7 @@
       //store as array, too many parameters
       $userCredentials = array($username, $password, $email, $ip, $dateCreated, $lastLogin);
 
-      $signup = $controller->insecureSignup($userCredentials);
+      $signup = $controller->secureSignup($userCredentials);
     }
   }
 

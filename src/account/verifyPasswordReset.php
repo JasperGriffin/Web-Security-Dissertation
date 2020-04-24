@@ -5,7 +5,6 @@
 
   if (isset($_POST['submit'])) {
 
-    $username =  $_SESSION['userUId'];
     $password = $_POST['password'];
     $repeatPassword = $_POST['repeatPassword'];
 
@@ -20,7 +19,7 @@
     else if ($password == $repeatPassword) {
 
       $controller = new user_login_controller();
-      $passwordReset = $controller->passwordReset($username, $password);
+      $passwordReset = $controller->passwordReset($password);
     }
 
   }

@@ -2,6 +2,10 @@
 
   require_once "../templates/header.php";
 
+  if (!isset($_SESSION['userId'])) {
+    die ("You must be logged in to reset your password");
+  }
+
   $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
   if (strpos($url, "empty_fields") == true) {
@@ -17,9 +21,6 @@
     echo "<p>There's a problem connecting to servers at the moment<br>Try again later</p>";
   }
 
-  if (!isset($_POST['btnReset'])) {
-    die ("You must be logged in to reset your password");
-  }
 ?>
 
 <html>

@@ -13,6 +13,9 @@
   if (strpos($url, "empty_fields") == true) {
     echo "<p>Please enter all fields</p>";
   }
+  else if (strpos($url, "mail_server_disconnected") == true) {
+    echo "<p>Email server cannot connect</p>";
+  }
 
  ?>
 
@@ -36,7 +39,6 @@
           <label for="password">Password:</label>
           <input type="text" name="password"  placeholder="Password..."><br>
           <input id="submit" type="submit" name="login" value="login">
-
         </form>
 
         <form action="signup.php" class="register" method="GET">
