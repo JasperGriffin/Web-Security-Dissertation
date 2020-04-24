@@ -1,11 +1,8 @@
 
 <?php
 
-  //include("C:/xampp/htdocs/src/session/session.php");
-  //$newSession = new session();
-  //$newSession->getSession();
 
-  function parseURL($url) {
+  /*function parseURL($url) {
     $newID = substr($url, strrpos($url, '=') + 1);
     return $newID;
   }
@@ -14,10 +11,18 @@
 
   if (preg_match('/(localhost\/index.php\?user_id=[0-9]+)/', $url) == true) {
 
-    $token = parseURL($url);
-    session_id($token);
+    $id = parseURL($url);
+    session_id($id);
     session_start();
-    header("Location: ../../index.php?login_with_user_id=$token");
+
+    $_SESSION['loggedin'] = true;
+    $_SESSION['userId'] = $id;
+    $_SESSION['userUId'] = "adminn";
+
+    echo "Token: $id";
+  }
+  else {
+    session_start();
   }
   else if (preg_match('/(localhost\/index.php\?token=[0-9]+)/', $url) == true) {
 
@@ -25,10 +30,26 @@
     session_id($token);
     session_start();
     header("Location: ../../index.php?login_with_$token");
+  }*/
+
+  function getUser() {
+
+    $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+    if (preg_match('/(localhost\/index.php\?user_id=[0-9]+)/', $url) == true) {
+
+    }
+
+    $id = 10;
+    return $id;
+
+    $_SESSION['loggedin'] = true;
+    $_SESSION['userId'] = getUser();
+    $_SESSION['userUId'] = "Admin";
   }
-  else {
-    session_start();
-  }
+  session_id(getUser());
+  session_start();
+
 
 ?>
 

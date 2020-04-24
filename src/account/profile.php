@@ -21,7 +21,7 @@
   </head>
   <body>
     <h1>Username: <?php echo"$_SESSION[userUId]"  ?></h1>
-    <h1>Session: <?php echo"session_id()"  ?></h1>
+    <h1>Session: <?php echo session_id()  ?></h1>
     <form action='passwordReset.php' method='post'>
       <button type="submit">Password reset</button>
     </form>

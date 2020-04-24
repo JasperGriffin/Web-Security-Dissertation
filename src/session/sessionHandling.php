@@ -2,22 +2,23 @@
 
 class sessionHandling {
 
-  public function __construct($id, $username) {
-
-    session_start();
-
-    $_SESSION['loggedin'] = true;
-    $_SESSION['userId'] = $id;
-    $_SESSION['userUId'] = $username;
-  }
+  //public function __construct($id, $username) {}
 
   /*SESSION VIOLATION: session is meaningful as it's set equal to the consecutive user id*/
   /*Can either steal a user's session id by either in the URL or in the browser cookies*/
   /*Additionally, session isn't regenerated with each login*/
   public function setMeaningfulSession($id, $username) {
 
-    header("Location: ../../index.php?user_id=$id");
-    exit();
+    //session_regenerate_id(TRUE);
+
+    /*session_id($id);
+    session_start();
+
+    $_SESSION['loggedin'] = true;
+    $_SESSION['userId'] = $id;
+    $_SESSION['userUId'] = $username;
+
+    //header("Location: ../../index.php?user_id=$id");*/
   }
 
   /*SESSION VIOLATION: session has small */

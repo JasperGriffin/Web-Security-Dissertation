@@ -27,7 +27,7 @@
 
     //check that validates username under certain characters (input validation)
     //future case: force users to have [A-z][1-9]* to increase complexity
-    else if (!preg_match('/^(?:.*[A-z0-9]{6,20}|)$/', $username)) {
+    else if (!preg_match('/^(?:.*[A-z0-9]{4,20}|)$/', $username)) {
       header("Location: http://localhost/src/account/signup.php?error=invalid_username");
       exit();
     }

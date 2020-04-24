@@ -17,9 +17,10 @@
       exit();
     }
     else if ($password == $repeatPassword) {
-
+      
       $controller = new user_login_controller();
       $passwordReset = $controller->passwordReset($password);
+
     }
 
   }

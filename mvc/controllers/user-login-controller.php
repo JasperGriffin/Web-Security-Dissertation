@@ -129,11 +129,8 @@ class user_login_controller extends user_model {
 
                     $stmt->close();
 
-                    $session = new sessionHandling($id, $username);
-                    $session->setWeakSession($id, $username);
-
-
-
+                    $session = new sessionHandling();
+                    $session->setMeaningfulSession($id, $username);
                   }
                   else {
 
@@ -217,7 +214,8 @@ class user_login_controller extends user_model {
 
   public function passwordReset($password) {
 
-    $password = mysqli_real_escape_string($password);
+    //$password = mysqli_real_escape_string($password);
+    $password = mysqli_real_escape_string($this->conn, $password);
 
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
@@ -232,8 +230,6 @@ class user_login_controller extends user_model {
       $this->query = mysqli_query($this->conn, $this->sql);
 
       if ($this->query) {
-
-        //check if password is changed
 
         header("Location: ../../src/account/profile.php?password_reset.$this->sql");
         exit();
