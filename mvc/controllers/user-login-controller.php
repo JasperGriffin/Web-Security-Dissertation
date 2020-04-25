@@ -2,7 +2,7 @@
 
 include "../../mvc/views/user-view.php";
 include "../../phpmailer/mail.php";
-include "../../src/session/sessionHandling.php";
+include_once "../../src/session/sessionHandling.php";
 
 class user_login_controller extends user_model {
 
@@ -125,18 +125,16 @@ class user_login_controller extends user_model {
 
                   //if ip doesn't = $ip ->two factor authorisation
                   if ($currentIP == $ip) {
-                  //if ($currentIP) {
 
                     $stmt->close();
 
                     $session = new sessionHandling();
-                    $session->setMeaningfulSession($id, $username);
+                    $session->setWeakSession($id);
                   }
                   else {
 
                     /*two factor authorisation*/
                     self::setTwoFactorAuth($id, $username, $email, $ip);
-
                   }
                 }
                 else {
@@ -243,6 +241,12 @@ class user_login_controller extends user_model {
       header("Location: ../../src/account/passwordReset.php?connection_error");
       exit();
     }
+  }
+
+  public function getUsername($id) {
+
+
+
   }
 
 
