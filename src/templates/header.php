@@ -6,8 +6,6 @@
   /*WORKS*/
   $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-  //id
-  //token
   $sessionController = new sessionHandling();
 
   if (preg_match('/(localhost\/index.php\?user_id=[0-9]+)/', $url) == true) {
@@ -20,19 +18,9 @@
     //$sessionController = new sessionHandling();
     $sessionController->getWeakSession($url);
   }
-  //matches success
-  else if (preg_match('/(localhost\/index.php\?login_success)/', $url) == true) {}
-
   else {
-    session_start();
+    $sessionController->setSecureSettings();
   }
-
-  /*function parseURL($url) {
-    $newID = substr($url, strrpos($url, '=') + 1);
-    return $newID;
-  }*/
-  /*WORKS*/
-
 
 ?>
 
@@ -55,26 +43,27 @@
 					</form>
 				</div>
 
-					<?php if (isset($_SESSION['userId'])): ?>
+				<?php if (isset($_SESSION['userId'])): ?>
 
-						<div class='logged-in'>
-							<form action='/src/account/profile.php' method='get'>
-								<?php echo "<li><button><p>$_SESSION[userUId]</p></button></li>"?>
-							</form>
+					<div class='logged-in'>
+						<form action='/src/account/profile.php' method='get'>
+							<?php echo "<li><button><p>$_SESSION[userUId]</p></button></li>"?>
+						</form>
 
-							<form action='/src/account/logout.php' method='get' class='login-btn'>
-								<button><b>Logout</b></button>
-							</form>
-						</div>
+						<form action='/src/account/logout.php' method='get' class='login-btn'>
+							<button><b>Logout</b></button>
+						</form>
+					</div>
 
-				<?php else: ?>
-						<div class='logged-in'>
-							<form action='/src/account/login.php' method='get' class='login-btn'>
-								<button><b>Login</b></button>
-							</form>
-						</div>
+			  <?php else: ?>
 
-				<?php endif; ?>
+					<div class='logged-in'>
+						<form action='/src/account/login.php' method='get' class='login-btn'>
+							<button><b>Login</b></button>
+						</form>
+					</div>
+
+			<?php endif; ?>
 
 			</ul>
 		</nav>

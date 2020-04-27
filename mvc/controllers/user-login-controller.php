@@ -128,8 +128,10 @@ class user_login_controller extends user_model {
 
                     $stmt->close();
 
-                    $session = new sessionHandling();
-                    $session->setWeakSession($id);
+                    $sessionController = new sessionHandling();
+                    $sessionController->getSecureSession($id, $username);
+                    //header("Location: ../../index.php?login_success");
+                    //exit();
                   }
                   else {
 
@@ -202,7 +204,6 @@ class user_login_controller extends user_model {
     $mailController = new mail();
     $mail = $mailController->sendEmail($token, $username, $email, $ip);
 
-
     //check if user input matches token
     $view = new user_view();
     $view->sendForm($token, $id, $username, $email, $ip, $timeStart, $counter);
@@ -229,7 +230,7 @@ class user_login_controller extends user_model {
 
       if ($this->query) {
 
-        header("Location: ../../src/account/profile.php?password_reset.$this->sql");
+        header("Location: ../../src/account/profile.php?password_reset=$password");
         exit();
       }
       else {
@@ -242,13 +243,5 @@ class user_login_controller extends user_model {
       exit();
     }
   }
-
-  public function getUsername($id) {
-
-
-
-  }
-
-
 }
 ?>

