@@ -15,16 +15,17 @@
   //matches token
   else if (preg_match('/(localhost\/index.php\?token=[0-9]+)/', $url) == true) {
 
-    //$sessionController = new sessionHandling();
     $sessionController->getWeakSession($url);
   }
   else {
-    $sessionController->setSecureSettings();
+
+    //$sessionController->setSecureSettings();
+    session_start();
   }
 
 ?>
 
-	<html>
+<html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="/public/assets/css/header.css">
 	</head>

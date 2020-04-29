@@ -1,0 +1,13 @@
+/*Navbar changes*/
+.login-btn button {
+  background: #ffc857;
+}
+
+/*template changes*/
+.colour-overlay {
+  background: rgb(255,200,87,0.3);
+}
+
+.header-overlay {
+  background: rgb(255,200,87);
+}
