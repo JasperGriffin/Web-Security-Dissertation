@@ -31,6 +31,10 @@ h2 {
   padding: 5vh 0vh 0vh 10%;
 }
 
+.login-container #username {
+  margin-top: 20px;
+}
+
 .login-container #username, #password {
   padding: 1vh 20vh 1vh 1vh;
   border: none;
@@ -56,4 +60,8 @@ h2 {
 
 .a-tag {
   padding-bottom: 5vh;
+}
+
+.error {
+  color: red;
 }

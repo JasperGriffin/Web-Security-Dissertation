@@ -31,6 +31,10 @@ h2 {
   padding: 5vh 0vh 0vh 10%;
 }
 
+.signup-container #email {
+  margin-top: 20px;
+}
+
 .signup-container #email, #username, #password, #repeatPassword {
   padding: 1vh 20vh 1vh 1vh;
   border: none;
@@ -55,4 +59,8 @@ h2 {
 
   margin-top: 2vh;
   margin-bottom: 2vh;
+}
+
+.error {
+  color: red;
 }

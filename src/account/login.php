@@ -10,12 +10,7 @@
   //error checking
   $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-  if (strpos($url, "empty_fields") == true) {
-    echo "<p>Please enter all fields</p>";
-  }
-  else if (strpos($url, "mail_server_disconnected") == true) {
-    echo "<p>Email server cannot connect</p>";
-  }
+
 
  ?>
 
@@ -35,13 +30,24 @@
         <h1>Login</h1>
         <h2>Please enter your username and password</h2>
 
+
+        <?php
+
+        if (strpos($url, "empty_fields") == true) {
+          echo "<p class='error'>Please enter all fields</p>";
+        }
+        else if (strpos($url, "mail_server_disconnected") == true) {
+          echo "<p class='error'>Email server cannot connect</p>";
+        }
+         ?>
+
         <div class="form-container">
           <!--Vulnerability: using GET request for logins -->
           <form action="verifyLogin.php" method="POST">
             <!--<label for="username">Username:</label><br />-->
-            <input id="username" type="text" name="username" placeholder="Username..."><br />
+            <input id="username" type="text" name="username" placeholder="Username"><br />
             <!--<label for="password">Password:</label><br />-->
-            <input id="password" type="text" name="password"  placeholder="Password..."><br />
+            <input id="password" type="text" name="password"  placeholder="Password"><br />
             <input id="login" type="submit" name="login" value="Login">
           </form>
           <br />
