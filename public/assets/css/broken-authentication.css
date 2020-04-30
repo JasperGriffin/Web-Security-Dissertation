@@ -3,6 +3,11 @@
   background: #ffc857;
 }
 
+.first-child:hover, .middle-child:hover, .last-child:hover {
+  border: 2px solid #ffc857;
+  background: #ffc857;
+}
+
 /*template changes*/
 .colour-overlay {
   background: rgb(255,200,87,0.3);

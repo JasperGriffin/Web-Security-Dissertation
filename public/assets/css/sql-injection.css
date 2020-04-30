@@ -12,6 +12,11 @@
   background: rgb(246,16,103);
 }
 
+.first-child:hover, .middle-child:hover, .last-child:hover {
+  border: 2px solid #F61067;
+  background: #F61067;
+}
+
 /*Search bar changes*/
 
 .search {

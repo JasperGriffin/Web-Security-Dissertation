@@ -10,7 +10,7 @@
   color: white;
 }
 
-.navbar-left button:hover, .anchor-buttons button:hover {
+.navbar-left button:hover {
 	transition: all 1s ease 0s;
   background-color: rgba(242,242,242,0.2);
 }
@@ -66,16 +66,23 @@ a {
 
 .anchor-buttons button {
 	color: white;
-	border: none;
+	border: 2px solid white;
 	cursor: pointer;
 	background: none;
 	padding: 1vh 3vh 1vh 3vh;
 	font-size: 2vh;
+	margin-right: 1vh;
+	margin-top: 1.5vh;
 }
 
-.anchor-buttons .first-child, .anchor-buttons .middle-child {
-	border-right:solid 1px #fff;
+.anchor-button button:hover {
+  border: 2px solid #F61067;
+  background: #F61067;
 }
+
+/*.anchor-buttons .first-child, .anchor-buttons .middle-child {
+	border-right:solid 1px #fff;
+}*/
 
 .header-container {
 	text-align: center;

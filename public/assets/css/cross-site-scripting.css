@@ -11,3 +11,8 @@
 .header-overlay {
   background: rgb(255,200,87);
 }
+
+.first-child:hover, .middle-child:hover, .last-child:hover {
+  border: 2px solid #ffc857;
+  background: #ffc857;
+}
