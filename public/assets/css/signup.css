@@ -7,3 +7,51 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
 }
+
+hr {
+	text-align:center;
+  margin: 0 auto;
+}
+
+.hr-container {
+  padding: 5vh 0vh 5vh 0vh;
+}
+
+h1 {
+  font-size: 5vh;
+  padding-bottom: 1vh;
+}
+
+h2 {
+  padding-bottom: 2vh;
+}
+
+.signup-container {
+  /*text-align: center;*/
+  padding: 5vh 0vh 0vh 10%;
+}
+
+.signup-container #email, #username, #password, #repeatPassword {
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 1vh 20vh 1vh 1vh;
+}
+
+.signup-container #email, #username, #password {
+  margin-bottom: 2vh;
+}
+
+/*Buttons*/
+.signup-container #register {
+  border: none;
+  background: #1ed760;
+  cursor: pointer;
+
+  padding: 1.5vh 2vh 1.5vh 2vh;
+  border-radius: 17.5px;
+  color: white;
+  font-size: 2vh;
+
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}

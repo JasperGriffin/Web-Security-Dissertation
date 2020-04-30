@@ -28,26 +28,35 @@
     <link rel="stylesheet" type="text/css" href="/public/assets/css/signup.css">
   </head>
   <body>
-    <div class="signup-container">
 
-      <h1>Register</h1>
+    <div class="hr-container">
+      <hr width="80%">
 
-      <div class="form-container">
+      <div class="signup-container">
 
-        <form action="verifySignup.php" method="POST">
+        <h1>Register</h1>
+        <h2>Please enter your username, email and password</h2>
 
-          <label for="email">Email:</label>
-          <input type="text" name="email" placeholder="Email..."><br>
-          <label for="username">Username:</label>
-          <input type="text" name="username" placeholder="Username..."><br>
-          <label for="password">Password:</label>
-          <input type="text" name="password"  placeholder="Password..."><br>
-          <label for="password">Repeat password:</label>
-          <input type="text" name="repeat-password"  placeholder="Repeat password..."><br>
-          <input type="submit" name="signup" value="Signup">
-        </form>
+        <div class="form-container">
+
+          <form action="verifySignup.php" method="POST">
+
+            <label for="email">Email:</label><br />
+            <input id="email" type="text" name="email" placeholder="Email..."><br />
+            <label for="username">Username:</label><br />
+            <input id="username" type="text" name="username" placeholder="Username..."><br />
+            <label for="password">Password:</label><br />
+            <input id="password" type="text" name="password"  placeholder="Password..."><br />
+            <label for="password">Repeat password:</label><br />
+            <input id="repeatPassword" type="text" name="repeat-password"  placeholder="Repeat password..."><br />
+            <input id="register" type="submit" name="signup" value="Sign up">
+          </form>
+        </div>
       </div>
+
+      <hr width="80%">
     </div>
+
   </body>
 </html>
 

@@ -41,13 +41,13 @@ form {
 	border: none;
 	cursor: pointer;
 	padding: 10px 20px;
-	font-size: 15px;
+	font-size: 17.5px;
 	background: none;
 }
 
  .navbar-left button:hover {
 	transition: all 1s ease 0s;
-	background-color: #f2f2f2;
+	background-color: rgba(38, 38, 38, 0.1);
 }
 
 .login-btn button {
@@ -57,7 +57,7 @@ form {
 	cursor: pointer;
 	transition: all 0.3s ease 0s;
 	background: #1ed760;
-	font-size: 15px;
+	font-size: 17.5px;
 	color: white;
 }
 

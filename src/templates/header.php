@@ -34,7 +34,7 @@
 			<ul class="navbar">
 				<div class="navbar-left">
 					<form action='/index.php' method='get'>
-						<li><button><p>Jasper Griffin</p></button></li>
+						<li><button><p>Home</p></button></li>
 					</form>
 					<form action='/#' method='get'>
 						<li><button><p>About</p></button></li>

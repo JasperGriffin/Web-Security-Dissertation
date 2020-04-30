@@ -26,28 +26,29 @@
   </head>
   <body>
 
-    <div class="login-container">
+    <div class="hr-container">
 
-      <h1>Login</h1>
-      <h2>Please enter your username and password</h2>
+      <hr width="80%">
 
-      <div class="form-container">
-        <!--Vulnerability: using GET request for logins -->
-        <form action="verifyLogin.php" method="POST">
-          <label for="username">Username:</label>
-          <input type="text" name="username" placeholder="Username..."><br>
-          <label for="password">Password:</label>
-          <input type="text" name="password"  placeholder="Password..."><br>
-          <input id="submit" type="submit" name="login" value="login">
-        </form>
+      <div class="login-container">
 
-        <form action="signup.php" class="register" method="GET">
-          <button>Sign up</button>
-        </form>
+        <h1>Login</h1>
+        <h2>Please enter your username and password</h2>
 
+        <div class="form-container">
+          <!--Vulnerability: using GET request for logins -->
+          <form action="verifyLogin.php" method="POST">
+            <label for="username">Username:</label><br />
+            <input id="username" type="text" name="username" placeholder="Username..."><br />
+            <label for="password">Password:</label><br />
+            <input id="password" type="text" name="password"  placeholder="Password..."><br />
+            <input id="login" type="submit" name="login" value="Login">
+          </form>
+          <br />
+          <a href="signup.php">No account? Create one here!</a>
+        </div>
       </div>
-
-
+      <hr width="80%">
     </div>
 
 

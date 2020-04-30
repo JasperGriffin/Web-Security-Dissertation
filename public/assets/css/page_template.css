@@ -12,7 +12,7 @@
 
 .navbar-left button:hover {
 	transition: all 1s ease 0s;
-  background-color: rgba(242,242,242,0.2);
+  background-color: rgba(242,242,242,0.3);
 }
 
 /*template changes*/
