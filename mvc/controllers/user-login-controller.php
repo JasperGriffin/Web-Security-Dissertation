@@ -50,13 +50,12 @@ class user_login_controller extends user_model {
 
         }
         else {
-          header("Location: ../../src/account/login.php?incorrect_login.$this->sql");
+          header("Location: ../../src/account/login.php?incorrect_login");
           exit();
           //echo "mysql_num_rows == 0<br>" . $this->sql;
         }
       }
       else {
-        $err = "Error_code:" . mysqli_errno($this->conn);
         header("Location: ../../src/account/login.php?invalid_query.$err");
         exit();
         //echo "invalid mysqli query<br>" . $this->sql;

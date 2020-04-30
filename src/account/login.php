@@ -36,9 +36,22 @@
         if (strpos($url, "empty_fields") == true) {
           echo "<p class='error'>Please enter all fields</p>";
         }
+        else if (strpos($url, "incorrect_login") == true) {
+          echo "<p class='error'>Incorrect login</p>";
+        }
+        else if (strpos($url, "incorrect_password") == true) {
+          echo "<p class='error'>Incorrect password</p>";
+        }
+        else if (strpos($url, "invalid_username_characters") == true) {
+          echo "<p class='error'>Username characters are invalid</p>";
+        }
+        else if (strpos($url, "invalid_username") == true) {
+          echo "<p class='error'>Username has invalid characters</p>";
+        }
         else if (strpos($url, "mail_server_disconnected") == true) {
           echo "<p class='error'>Email server cannot connect</p>";
         }
+
          ?>
 
         <div class="form-container">
@@ -58,8 +71,6 @@
       </div>
       <hr width="80%">
     </div>
-
-
   </body>
 </html>
 
