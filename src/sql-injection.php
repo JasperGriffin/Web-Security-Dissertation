@@ -25,6 +25,11 @@
 	$controller = new home_controller();
 	$data = $controller->fetchData();
 
+
+  require_once "templates/footer.php";
+
+
+
   //$this->sql = "SELECT title FROM home_buttons WHERE title LIKE '$query%'";
 
   //%' OR '%

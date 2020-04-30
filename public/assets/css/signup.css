@@ -32,13 +32,14 @@ h2 {
 }
 
 .signup-container #email, #username, #password, #repeatPassword {
-  border-radius: 20px;
-  border: 1px solid black;
   padding: 1vh 20vh 1vh 1vh;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 2vh;
 }
 
-.signup-container #email, #username, #password {
-  margin-bottom: 2vh;
+.signup-container #email:focus, #username:focus, #password:focus, #repeatPassword:focus {
+  border-bottom: 2px solid #1ed760;
 }
 
 /*Buttons*/

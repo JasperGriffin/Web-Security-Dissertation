@@ -32,26 +32,28 @@ h2 {
 }
 
 .login-container #username, #password {
-  border-radius: 20px;
-  border: 1px solid black;
   padding: 1vh 20vh 1vh 1vh;
-}
-
-.login-container #username {
+  border: none;
+  border-bottom: 1px solid black;
   margin-bottom: 2vh;
 }
 
+.login-container #username:focus, #password:focus {
+  border-bottom: 2px solid #1ed760;
+}
+
 /*Buttons*/
-.register #register, .login-container #login {
+ .login-container #login {
   border: none;
   background: #1ed760;
   cursor: pointer;
-
   padding: 1.5vh 2vh 1.5vh 2vh;
   border-radius: 17.5px;
   color: white;
   font-size: 2vh;
-
-  margin-top: 2vh;
   margin-bottom: 2vh;
+}
+
+.a-tag {
+  padding-bottom: 5vh;
 }
