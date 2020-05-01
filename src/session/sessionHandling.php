@@ -70,6 +70,7 @@ class sessionHandling {
     header("Location: index.php?login=successful_with_token");
   }
 
+  /*Get username for $_SESSION['userUId']*/
   public function getUsername($id) {
 
     $db = new user_model();

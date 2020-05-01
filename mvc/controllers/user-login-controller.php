@@ -159,8 +159,6 @@ class user_login_controller extends user_model {
             header("Location: ../../src/account/login.php?invalid_username_characters");
             exit();
           }
-
-
         }
         else {
           header("Location: ../../src/account/login.php?invalid_username");

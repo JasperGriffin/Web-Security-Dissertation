@@ -93,7 +93,7 @@ a {
 	font-size: 3em;
 }
 
-.p-container {
+.p-container p {
 	font-size: 1.4em;
 	padding: 5% 20vw 5% 20vw;
 }
@@ -105,6 +105,12 @@ a {
 
 .header-overlay h1, .header-overlay p {
 	color: white;
+}
+
+#risks, #solutions {
+	padding-top: 5vh;
+	font-size: 3em;
+	text-align: center;
 }
 
 @media (min-aspect-ratio: 16/9) {

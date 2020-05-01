@@ -1,7 +1,5 @@
 <?php
 
-	//require "public/assets/html/home.html";
-
 	class home_view {
 
 		public function printData($data) {
@@ -22,9 +20,12 @@
 		public function printQuery($data) {
 
 			if ($data->num_rows > 0) {
-				while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
-		        echo $row['title']. "<br />";
-		    }
+				echo "<div class='result-container'>";
+					echo "<h2>Results:</h2>";
+						while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
+				        echo "<p>$row[title]</p>";
+				    }
+				echo "</div>";
 			}
 		}
 

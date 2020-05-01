@@ -34,10 +34,7 @@ class home_controller extends home_model {
 
     $result = mysqli_query($this->conn, $this->sql);
 
-    echo "Num rows: ". $result->num_rows . "<br />";
-
     return $result;
-
     //$this->conn->close();
   }
 }
