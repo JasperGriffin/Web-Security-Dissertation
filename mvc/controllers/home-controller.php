@@ -28,7 +28,7 @@ class home_controller extends home_model {
     }
   }
 
-  public function searchData($query) {
+  public function insecureSearchData($query) {
 
     $this->sql = "SELECT title FROM home_buttons WHERE title LIKE '$query%'";
 
@@ -36,6 +36,14 @@ class home_controller extends home_model {
 
     return $result;
     //$this->conn->close();
+  }
+
+  public function secureSearchData($query) {
+
+    $query = mysqli_real_escape_string($this->conn, $query);
+
+    //prepare statement
+
   }
 }
 ?>

@@ -47,7 +47,7 @@ h2 {
 }
 
 /*Buttons*/
- .login-container #login {
+.login-container #login {
   border: none;
   background: #1ed760;
   cursor: pointer;

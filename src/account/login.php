@@ -7,9 +7,7 @@
     exit();
   }
 
-  //error checking
-  $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-  
+
  ?>
 
 <html>
@@ -28,8 +26,9 @@
         <h1>Login</h1>
         <h2>Please enter your username and password</h2>
 
-
         <?php
+
+        $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         if (strpos($url, "empty_fields") == true) {
           echo "<p class='error'>Please enter all fields</p>";

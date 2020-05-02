@@ -81,9 +81,11 @@
 
             $search = $_GET['search'];
 
+            //input validation
+
             //fetch user data //controller
             $controller = new home_controller();
-            $data = $controller->searchData($search);
+            $data = $controller->insecureSearchData($search);
 
             if ($data->num_rows > 0) {
               $view = new home_view();
@@ -135,6 +137,9 @@
 
   //' union select name FROM INFORMATION_SCHEMA.INNODB_SYS_TABLES -- '
   //prints names of all tables
+
+  //' union select username FROM USERS.USERS -- '
+  //prints usernames of all users
 
   //sleep
   //sql'  UNION SELECT SLEEP(3)-- '
