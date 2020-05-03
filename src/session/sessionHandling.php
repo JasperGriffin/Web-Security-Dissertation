@@ -35,7 +35,7 @@ class sessionHandling {
     session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['userId'] = $id;
-    $_SESSION['userUId'] = $username;
+    self::setUsernameSession($id, $username);
 
     header("Location: index.php?login=successful_with_id");
   }
@@ -74,7 +74,8 @@ class sessionHandling {
     session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['userId'] = $id;
-    $_SESSION['userUId'] = $username;
+
+    self::setUsernameSession($id, $username);
 
     header("Location: index.php?login=successful_with_token");
   }
@@ -88,17 +89,11 @@ class sessionHandling {
     session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['userId'] = $id;
-    $_SESSION['userUId'] = $username;
 
-    $admin = self::setUsernameSession($id);
+    self::setUsernameSession($id, $username);
 
-    if ($admin) {
-      $_SESSION['MAX_AUTH_LEVEL'] = true;
-      header("Location: ../../index.php?login_successful_as_admin");
-    }
-    else {
-      header("Location: ../../index.php?login_successful");
-    }
+    header("Location: ../../index.php?login_successful");
+    //exit();
   }
 
   public function setSecureSettings() {
@@ -144,23 +139,32 @@ class sessionHandling {
     }
   }
 
-  public function setUsernameSession($id) {
+  public function setUsernameSession($id, $username) {
 
     //SELECT r.role_name FROM `users` u inner join user_roles r on u.user_id = r.role_id WHERE r.role_id = 1
 
     $this->sql = "SELECT r.role_name FROM users u inner join user_roles r on u.user_id = r.role_id WHERE r.role_id = $id";
-    $this->query = mysqli_query($this->conn, $this->sql);
 
-    if ($this->query) {
-      $row = mysqli_fetch_array($this->query);
+    if ($this->conn) {
 
-      $roleName = $row['role_name'];
+      $this->query = mysqli_query($this->conn, $this->sql);
 
-      if ($roleName == "Administrator") {
-        return $roleName;
+      if ($this->query) {
+
+        $row = mysqli_fetch_array($this->query);
+
+        $roleName = $row['role_name'];
+
+        if ($roleName == "Administrator") {
+          $_SESSION['MAX_AUTH_LEVEL'] = true;
+          $_SESSION['userUId'] = $username;
+        }
+        else if ($roleName = "General") {
+          $_SESSION['userUId'] = $username;
+
+        }
       }
     }
-
   }
 }
 
