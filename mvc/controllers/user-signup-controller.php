@@ -13,6 +13,7 @@ class user_signup_controller extends user_model {
     $this->conn = $db->connect();
   }
 
+  //($username, $password, $email, $ip, $dateCreated, $lastLogin
   public function insecureSignup($userCredentials) {
 
     //second order sql injection: admin''--'' -> admin'--' in db
@@ -29,13 +30,19 @@ class user_signup_controller extends user_model {
       $this->query = mysqli_query($this->conn, $this->sql);
 
       if ($this->query) {
-        header("Location: ../../index.php?signup=success");
-        exit();
+
+        $check = self::setGeneralRole($userCredentials);
+
+        if ($check == true) {
+          header("Location: ../../index.php?signup=success");
+          exit();
+        }
+        else {
+          header("Location: ../../src/account/signup.php?signup=error");
+          exit();
+        }
       }
-      else {
-        header("Location: ../../src/account/signup.php?signup=error");
-        exit();
-      }
+
     }
   }
 
@@ -58,9 +65,18 @@ class user_signup_controller extends user_model {
         $stmt->bind_param($types, ...$userCredentials);
 
         if ($stmt->execute()) {
-          header("Location: ../../index.php?signup=successful");
-          exit();
-          $stmt->close();
+
+          $check = self::setGeneralRole($userCredentials);
+
+          if ($check == true) {
+            header("Location: ../../index.php?signup=successful");
+            exit();
+            $stmt->close();
+          }
+          else {
+            header("Location: ../../src/account/signup.php?error_assigning_role");
+            exit();
+          }
         }
         else {
           header("Location: ../../src/account/signup.php?signup_error");
@@ -90,6 +106,41 @@ class user_signup_controller extends user_model {
     }
   }
 
+  public function getID($username) {
+
+    $this->sql = "SELECT user_id FROM users WHERE username = '$username'";
+
+    if ($this->conn) {
+
+      $this->query = mysqli_query($this->conn, $this->sql);
+
+      if (mysqli_num_rows($this->query) == 1) {
+
+        $row = mysqli_fetch_array($this->query);
+        $id = $row['user_id'];
+        return $id;
+      }
+    }
+  }
+
+  public function setGeneralRole($userCredentials) {
+
+    $id = self::getID($userCredentials[0]);
+    //SELECT r.role_name FROM `users` u inner join user_roles r on u.user_id = r.role_id WHERE r.role_id = 1
+    $this->sql = "INSERT INTO user_roles (role_id, role_name) VALUES ('$id', 'General')";
+
+    if ($this->conn) {
+
+      $this->query = mysqli_query($this->conn, $this->sql);
+
+      if ($this->query) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
 }
 
 ?>

@@ -7,9 +7,16 @@ class sessionHandling {
   private $conn;
   private $sql;
   private $query;
+
+  //session length
   private $arrLength = 6;
 
-  /*SESSION VIOLATION: sessio is meaningful as it's set equal to the consecutive user id*/
+  public function __construct() {
+    $db = new user_model();
+    $this->conn = $db->connect();
+  }
+
+  /*SESSION VIOLATION: session is meaningful as it's set equal to the consecutive user id*/
   /*Can either steal a user's session id by either in the URL or in the browser cookies*/
   /*Additionally, session isn't regenerated with each login*/
   public function setMeaningfulSession($id) {
@@ -17,6 +24,7 @@ class sessionHandling {
     exit();
   }
 
+  /*Called from header.php*/
   public function getMeaningfulSession($url) {
 
     $id = substr($url, strrpos($url, '=') + 1);
@@ -32,7 +40,7 @@ class sessionHandling {
     header("Location: index.php?login=successful_with_id");
   }
 
-  /*SESSION VIOLATION: session has small */
+  /*SESSION VIOLATION: session has small length*/
   public function setWeakSession($id) {
 
     //come up with number generation
@@ -54,6 +62,7 @@ class sessionHandling {
     exit();
   }
 
+  /*Called from header.php*/
   public function getWeakSession($url) {
 
     $token = substr($url, strrpos($url, '=') + 1);
@@ -70,21 +79,6 @@ class sessionHandling {
     header("Location: index.php?login=successful_with_token");
   }
 
-  /*Get username for $_SESSION['userUId']*/
-  public function getUsername($id) {
-
-    $db = new user_model();
-    $this->conn = $db->connect();
-    $this->sql = "SELECT username FROM users WHERE user_id = $id";
-    $this->query = mysqli_query($this->conn, $this->sql);
-
-    if ($this->query) {
-      $row = mysqli_fetch_array($this->query);
-      $username = $row['username'];
-      return $username;
-    }
-  }
-
   public function getSecureSession($id, $username) {
 
     session_regenerate_id(TRUE);
@@ -96,7 +90,15 @@ class sessionHandling {
     $_SESSION['userId'] = $id;
     $_SESSION['userUId'] = $username;
 
-    header("Location: ../../index.php?login_successful");
+    $admin = self::setUsernameSession($id);
+
+    if ($admin) {
+      $_SESSION['MAX_AUTH_LEVEL'] = true;
+      header("Location: ../../index.php?login_successful_as_admin");
+    }
+    else {
+      header("Location: ../../index.php?login_successful");
+    }
   }
 
   public function setSecureSettings() {
@@ -127,6 +129,38 @@ class sessionHandling {
     ini_set('session.hash_function', 'sha512');
 
     session_start();
+  }
+
+  /*Get username for $_SESSION['userUId']*/
+  public function getUsername($id) {
+
+    $this->sql = "SELECT username FROM users WHERE user_id = $id";
+    $this->query = mysqli_query($this->conn, $this->sql);
+
+    if ($this->query) {
+      $row = mysqli_fetch_array($this->query);
+      $username = $row['username'];
+      return $username;
+    }
+  }
+
+  public function setUsernameSession($id) {
+
+    //SELECT r.role_name FROM `users` u inner join user_roles r on u.user_id = r.role_id WHERE r.role_id = 1
+
+    $this->sql = "SELECT r.role_name FROM users u inner join user_roles r on u.user_id = r.role_id WHERE r.role_id = $id";
+    $this->query = mysqli_query($this->conn, $this->sql);
+
+    if ($this->query) {
+      $row = mysqli_fetch_array($this->query);
+
+      $roleName = $row['role_name'];
+
+      if ($roleName == "Administrator") {
+        return $roleName;
+      }
+    }
+
   }
 }
 
