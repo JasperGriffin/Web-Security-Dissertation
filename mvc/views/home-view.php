@@ -8,7 +8,7 @@
 
 	      echo "<div class='home-btn-container'>";
 		      while ($row = $data->fetch_assoc()) {
-						echo "<form action='/src/$row[php_page]' method='get'>";
+						echo "<form action='/src/vulnerabilities/$row[php_page]' method='get'>";
 		        	echo "<button class='$row[class_name]'><p><b>$row[title]</b></p></button>";
 						echo "</form>";
 		      }

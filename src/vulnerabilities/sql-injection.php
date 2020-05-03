@@ -1,11 +1,11 @@
 <?php
 
-  require_once "templates/header.php";
+  require_once "../templates/header.php";
 
   //search bar
-  include "../mvc/views/home-view.php";
-  include "../mvc/models/home-model.php";
-  include "../mvc/controllers/home-controller.php";
+  include "../../mvc/views/home-view.php";
+  include "../../mvc/models/home-model.php";
+  include "../../mvc/controllers/home-controller.php";
 
 ?>
 <html>
@@ -23,7 +23,7 @@
     <div class="colour-overlay"></div>
 
     <div class="subheadings">
-      <h1>Injection attacks</h1>
+      <h1>SQL Injection Attacks</h1>
       <!-- Blind | information schema exploits | second order (Maybe as buttons)-->
       <div class="anchor-buttons">
         <button class="first-child"><a href="#Introduction">Introduction</a></button>
@@ -58,12 +58,8 @@
     <div class="header-container">
       <h1 id="Demonstration">Demonstration</h1>
         <div class="p-container">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-
+          <h2>SQL injection example</h2>
+          <p>The following is an example of search bar where you can search for vulnerabilities that are explored on this platform. <br />However, it's also vulnerable to SQL injection when appropriately escaping the single quotes (')</p>
           <div class="search-container">
             <!-- New search bar -->
             <form class="search" method="GET" action="sql-injection.php?#Demonstration">
