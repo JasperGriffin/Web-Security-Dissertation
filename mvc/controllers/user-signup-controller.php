@@ -18,12 +18,9 @@ class user_signup_controller extends user_model {
 
     //second order sql injection: admin''--'' -> admin'--' in db
 
-    // array($username, $password, $email, $ip, $dateCreated, $lastLogin);
-    $hashedPwd = password_hash($userCredentials[1], PASSWORD_DEFAULT);
-    array_splice($userCredentials, 2, 0, $hashedPwd);
     $usrStr = implode("', '", $userCredentials);
 
-    $this->sql = "INSERT INTO users (username, pwd, hashed_pwd, email, ip, date_created, last_login) VALUES ('$usrStr')";
+    $this->sql = "INSERT INTO users (username, pwd, email, ip, date_created, last_login) VALUES ('$usrStr')";
 
     if (!is_null($this->conn)) {
 
@@ -31,16 +28,13 @@ class user_signup_controller extends user_model {
 
       if ($this->query) {
 
-        $check = self::setGeneralRole($userCredentials);
-
-        if ($check == true) {
-          header("Location: ../../index.php?signup=success");
+        //$check = self::setGeneralRole($userCredentials);
+          header("Location: ../../index.php?signup=successs");
           exit();
-        }
-        else {
-          header("Location: ../../src/account/signup.php?signup=error");
-          exit();
-        }
+      }
+      else {
+        header("Location: ../../src/account/signup.php?signup=errorr");
+        exit();
       }
 
     }
@@ -52,9 +46,9 @@ class user_signup_controller extends user_model {
     //talk about input validation in diss with mysqli_real_escape_string, check function to check usernames and preg_match with regex
 
     $hashedPwd = password_hash($userCredentials[1], PASSWORD_DEFAULT);
-    array_splice($userCredentials, 2, 0, $hashedPwd);
+    array_splice($userCredentials, 1, 1, $hashedPwd);
 
-    $this->sql = "INSERT INTO users (username, pwd, hashed_pwd, email, ip, date_created, last_login) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $this->sql = "INSERT INTO users (username, hashed_pwd, email, ip, date_created, last_login) VALUES (?, ?, ?, ?, ?, ?)";
 
     if ($this->conn) {
 

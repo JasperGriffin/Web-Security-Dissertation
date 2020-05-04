@@ -30,23 +30,16 @@ class user_login_controller extends user_model {
 
         if ($row = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
 
-          $id = $row['user_id'];
-          $updateLogin =self::updateLogin($id);
+          //$id = $row['user_id'];
+          //$updateLogin =self::updateLogin($id);
 
-          if ($updateLogin == true) {
+          session_start();
+          $_SESSION['loggedin'] = true;
+          $_SESSION['userId'] = $row['user_id'];
+          $_SESSION['userUId'] = $row['username'];
 
-            session_start();
-            $_SESSION['loggedin'] = true;
-            $_SESSION['userId'] = $row['user_id'];
-            $_SESSION['userUId'] = $row['username'];
-
-            header("Location: ../../index.php?login=success");
-            exit();
-          }
-          else {
-            header("Location: ../../src/account/login.php?login_unsuccessful");
-            exit();
-          }
+          header("Location: ../../index.php?login=success");
+          exit();
 
         }
         else {

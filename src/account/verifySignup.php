@@ -62,7 +62,7 @@
       //store as array, too many parameters
       $userCredentials = array($username, $password, $email, $ip, $dateCreated, $lastLogin);
 
-      $signup = $controller->secureSignup($userCredentials);
+      $signup = $controller->insecureSignup($userCredentials);
     }
   }
 

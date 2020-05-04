@@ -35,7 +35,7 @@ class sessionHandling {
     session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['userId'] = $id;
-    self::setUsernameSession($id, $username);
+    $_SESSION['userUId'] = $username;
 
     header("Location: index.php?login=successful_with_id");
   }
@@ -74,8 +74,8 @@ class sessionHandling {
     session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['userId'] = $id;
-
-    self::setUsernameSession($id, $username);
+    $_SESSION['userUId'] = $username;
+    //self::setUsernameSession($id, $username);
 
     header("Location: index.php?login=successful_with_token");
   }
