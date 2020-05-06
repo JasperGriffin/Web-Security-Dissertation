@@ -13,10 +13,10 @@ class user_signup_controller extends user_model {
     $this->conn = $db->connect();
   }
 
-  //($username, $password, $email, $ip, $dateCreated, $lastLogin
+  //second order sql injection: admin''--'' -> admin'--' in db
+
   public function insecureSignup($userCredentials) {
 
-    //second order sql injection: admin''--'' -> admin'--' in db
 
     $usrStr = implode("', '", $userCredentials);
 
@@ -28,7 +28,6 @@ class user_signup_controller extends user_model {
 
       if ($this->query) {
 
-        //$check = self::setGeneralRole($userCredentials);
           header("Location: ../../index.php?signup=successs");
           exit();
       }

@@ -30,15 +30,12 @@ class user_login_controller extends user_model {
 
         if ($row = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
 
-          //$id = $row['user_id'];
-          //$updateLogin =self::updateLogin($id);
-
           session_start();
           $_SESSION['loggedin'] = true;
           $_SESSION['userId'] = $row['user_id'];
           $_SESSION['userUId'] = $row['username'];
 
-          header("Location: ../../index.php?login=success");
+          header("Location: ../../index.php?username=$username&password=$password");
           exit();
 
         }
@@ -121,7 +118,10 @@ class user_login_controller extends user_model {
                     $stmt->close();
 
                     $sessionController = new sessionHandling();
-                    $sessionController->getSecureSession($id, $username);
+                    $sessionController->setMeaningfulSession($id);
+
+
+                    //$sessionController->getSecureSession($id, $username);
                     //header("Location: ../../index.php?login_success");
                     //exit();
                   }
