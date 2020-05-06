@@ -83,12 +83,17 @@
             $controller = new home_controller();
             $data = $controller->insecureSearchData($search);
 
-            if ($data->num_rows > 0) {
-              $view = new home_view();
-              $view->printQuery($data);
+            if ($data) {
+              if ($data->num_rows > 0) {
+                $view = new home_view();
+                $view->printQuery($data);
+              }
+              else {
+                echo "<p class='result-container'>No results found for $search.</p>";
+              }
             }
             else {
-              echo "<p class='result-container'>No results found for $search.</p>";
+              echo "<p class='result-container'>Error: Invalid query</p>";
             }
           }
 
