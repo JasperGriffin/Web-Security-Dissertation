@@ -15,6 +15,10 @@
   background-color: rgba(242,242,242,0.3);
 }
 
+.navbar-dropdown-btn p, .navbar-dropdown-content p {
+	color: white;
+}
+
 /*template changes*/
 a {
 	text-decoration: none;

@@ -72,3 +72,21 @@ form {
 	display: inline;
 	position: absolute;
 }
+
+.navbar-dropdown {
+	float: right;
+	overflow: hidden;
+}
+
+.navbar-dropdown-content {
+	display: none;
+}
+
+.navbar-dropdown-content p {
+	text-align: left;
+	min-width: 200px;
+}
+
+.navbar-dropdown:hover .navbar-dropdown-content {
+  display: block;
+}

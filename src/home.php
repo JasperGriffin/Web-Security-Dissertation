@@ -14,9 +14,10 @@
     </head>
     <body>
 
-    	<div class="header-container">
-    		<h1>Types of vulnerabilities</h1>
-    	</div>
+
+			<div class="header-container">
+				<h1>Types of vulnerabilities</h1>
+			</div>
 
 			<hr width="80%">
 
