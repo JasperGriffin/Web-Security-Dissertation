@@ -36,34 +36,41 @@
     <div class="header-container">
       <h1 id="Introduction">Introduction</h1>
         <div class="p-container">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+        </p>-->
+        <br /><br />
+        <p>[Introduction Material]</p>
+        <br /><br />
         </div>
     </div>
 
     <div class="header-overlay">
         <h1 id="Risks">Risks</h1>
           <div class="p-container">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <br /><br />
+            <p>[Risk Material]</p>
+            <br /><br />
+
           </div>
     </div>
 
     <div class="header-container">
       <h1 id="Demonstration">Demonstration</h1>
         <div class="p-container">
-          <h2>SQL injection example</h2>
-          <p>The following is an example of search bar where you can search for vulnerabilities that are explored on this platform. <br />However, it's also vulnerable to SQL injection when appropriately escaping the single quotes (')</p>
+          <!--<h2>SQL injection example</h2>
+          <p>The following is an example of search bar where you can search for vulnerabilities that are explored on this platform. <br />However, it's also vulnerable to SQL injection when appropriately escaping the single quotes (')</p>-->
           <div class="search-container">
-            <!-- New search bar -->
+
+            <br /><br />
+            <p>[Demonstration Material]</p>
+            <br /><br />
+
+            <!-- New search bar-->
             <form class="search" method="GET" action="sql-injection.php?#Demonstration">
-                <!--On the same line to avoid gaps between elements-->
+
                 <input type="text" name="search" placeholder="Search..." class="submit-txt"><button type="submit" name="submit" class="submit-btn"><i class="fa fa-search"></i></button>
             </form>
             <hr width="80%">
@@ -103,11 +110,9 @@
         <div class="header-overlay">
           <h1 id="Solutions">Solutions</h1>
             <div class="p-container">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              <br /><br />
+              <p>[Solution Material]</p>
+              <br /><br />
             </div>
         </div>
     </div>

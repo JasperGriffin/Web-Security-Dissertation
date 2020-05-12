@@ -27,12 +27,11 @@ class user_signup_controller extends user_model {
       $this->query = mysqli_query($this->conn, $this->sql);
 
       if ($this->query) {
-
-          header("Location: ../../index.php?signup=successs");
+          header("Location: ../../index.php?signup=success");
           exit();
       }
       else {
-        header("Location: ../../src/account/signup.php?signup=errorr");
+        header("Location: ../../src/account/signup.php?query_error");
         exit();
       }
 

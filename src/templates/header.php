@@ -48,7 +48,7 @@
               <div class="navbar-dropdown-content">
 
                 <form action='/src/vulnerabilities/sql-injection.php' method='get'>
-      						<button><p>SQL</p></button>
+      						<button><p>SQL Injection</p></button>
       					</form>
                 <br />
                 <form action='/src/vulnerabilities/sql-injection.php' method='get'>

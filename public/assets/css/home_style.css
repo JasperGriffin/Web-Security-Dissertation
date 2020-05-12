@@ -53,11 +53,11 @@ body {
 
 .sql {
   /*Remember to reference (sources page)*/
-  background: center url('https://kinsta.com/wp-content/uploads/2020/01/sql-injection.jpg');
+  /*background: center url('https://kinsta.com/wp-content/uploads/2020/01/sql-injection.jpg');*/
 }
 
 .xss {
-	background: center url('https://1.bp.blogspot.com/-Z_k1PAAb7TA/XXDmtXTlZvI/AAAAAAAA0-o/lDk_jz2opT06EMKvVWVbPLkOXiqqA3gswCLcBGAs/s728-e100/malware-cybersecurity-news.jpg');
+	/*background: center url('https://1.bp.blogspot.com/-Z_k1PAAb7TA/XXDmtXTlZvI/AAAAAAAA0-o/lDk_jz2opT06EMKvVWVbPLkOXiqqA3gswCLcBGAs/s728-e100/malware-cybersecurity-news.jpg');*/
 }
 
 .sql, .ba, .sde, .xxe, .bac, .sm, .xss, .id, .os{

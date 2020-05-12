@@ -46,7 +46,7 @@ class user_login_controller extends user_model {
         }
       }
       else {
-        header("Location: ../../src/account/login.php?invalid_query.$err");
+        header("Location: ../../src/account/login.php?invalid_query");
         exit();
         //echo "invalid mysqli query<br>" . $this->sql;
       }
@@ -79,8 +79,6 @@ class user_login_controller extends user_model {
     $this->sql = "SELECT user_id, hashed_pwd, email, ip FROM users WHERE username = ?";
 
     if ($this->conn) {
-
-      //$stmt = mysqli_stmt_init($this->conn);
 
       //checks if sql works within the database
       if ($stmt = $this->conn->prepare($this->sql)) {

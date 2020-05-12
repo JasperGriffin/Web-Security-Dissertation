@@ -27,6 +27,7 @@
 
     //check that validates username under certain characters (input validation)
     //future case: force users to have [A-z][1-9]* to increase complexity
+    /*
     else if (!preg_match('/^(?:.*[A-z0-9]{8,20}|)$/', $username)) {
       header("Location: http://localhost/src/account/signup.php?error=invalid_username");
       exit();
@@ -36,7 +37,7 @@
     else if ($check) {
       header("Location: http://localhost/src/account/signup.php?error=duplicate_username");
       exit();
-    }
+    }*/
 
     //check that passwords match
     else if ($password != $repeatPassword) {
@@ -45,10 +46,11 @@
     }
 
     //password must contain an upper case letter and must be above 8 letters
+    /*
     else if (!preg_match('/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!?<>:@+£$%^&*()~#`¬{};_])[A-Za-z\d\!?<>:@+£$%^&*()~#`¬{};_]{8,}$/', $password)) {
       header("Location: http://localhost/src/account/signup.php?error=invalid_password");
       exit();
-    }
+    }*/
 
     //when all checks are passed, store in db through user-controller
     else {

@@ -22,7 +22,11 @@
         <h2>Please enter your username, email and password</h2>
 
         <?php
-          if (strpos($url, "error=emptyfield") == true) {
+
+          if (strpos($url, "query_error") == true) {
+            echo "<p class='error'>500 Server Error. The server encountered an internal error and was unable to register a user</p>";
+          }
+          else if (strpos($url, "error=emptyfield") == true) {
             echo "<p class='error'>Please fill in all the fields</p>";
           }
           else if (strpos($url, "error=invalid_email") == true) {

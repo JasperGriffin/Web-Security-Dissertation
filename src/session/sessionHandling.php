@@ -37,7 +37,7 @@ class sessionHandling {
     $_SESSION['userId'] = $id;
     $_SESSION['userUId'] = $username;
 
-    header("Location: index.php?login=successful_with_id");
+    header("Location: index.php?login=successful_with_id=$id");
   }
 
   /*SESSION VIOLATION: session has small length*/
