@@ -96,7 +96,7 @@ class user_login_controller extends user_model {
 
             $num_of_rows = $stmt->num_rows;
 
-            if ($num_of_rows == 1) {
+            //if ($num_of_rows == 1) {
 
               $stmt->bind_result($id, $hashedpwd, $email, $ip);
 
@@ -118,10 +118,6 @@ class user_login_controller extends user_model {
                     $sessionController = new sessionHandling();
                     $sessionController->setMeaningfulSession($id);
 
-
-                    //$sessionController->getSecureSession($id, $username);
-                    //header("Location: ../../index.php?login_success");
-                    //exit();
                   }
                   else {
 
@@ -139,11 +135,11 @@ class user_login_controller extends user_model {
                 header("Location: ../../src/account/login.php?cannot_fetch");
                 exit();
               }
-            }
+            /*}
             else {
               header("Location: ../../src/account/login.php?incorrect_login");
               exit();
-            }
+            }*/
 
           }
           else {

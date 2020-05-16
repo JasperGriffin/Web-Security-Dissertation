@@ -88,7 +88,7 @@ a {
 	border-right:solid 1px #fff;
 }*/
 
-.header-container {
+.header-container h1 {
 	text-align: center;
 }
 
@@ -98,7 +98,7 @@ a {
 }
 
 .p-container p {
-	font-size: 1.4em;
+	font-size: 1.2em;
 	padding: 5% 20vw 5% 20vw;
 }
 

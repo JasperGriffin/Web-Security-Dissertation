@@ -7,6 +7,7 @@
 
     <div class="video-container">
       <video autoplay muted loop class="default-vid">
+        <!--https://www.youtube.com/watch?v=0mvCeNsTa1g-->
         <source src="/img/video/broken-authentication.mp4" type="video/mp4">
       </video>
     </div>
@@ -16,6 +17,7 @@
       <div class="anchor-buttons">
         <button class="first-child"><a href="#Introduction">Introduction</a></button>
         <button class="middle-child"><a href="#Risks">Risks</a></button>
+        <button class="second-last-child"><a href="#Demonstration">Demonstration</a></button>
         <button class="last-child"><a href="#Solutions">Solutions</a></button>
       </div>
     </div>
@@ -24,28 +26,45 @@
       <h1 id="Introduction">Introduction</h1>
         <div class="p-container">
           <p>
-          having username and password in URL (intercepted with burpe suite)
+            Broken authentication is marked as the second most vulnerable security risk and involves the poorly secured authentication where an attacker can compromise another user’s account.
+            As a login page is the only system to elevate a user’s privilege on a web application, there are multiple strategies for an attacker to assume someone else’s identity.
           </p>
         </div>
 
       <div class="header-overlay">
         <h1 id="Risks">Risks</h1>
           <div class="p-container">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p>Broken Authentication can result in the following factors:
+              <br /><br /> - Automated attacks of a login system with leaked username and password pairs
+              <br /><br /> - The eventual compromise of a user's account
             </p>
           </div>
       </div>
-      <h1 id="Solutions">Solutions</h1>
+      <h1 id="Demonstration">Demonstration</h1>
         <div class="p-container">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <p>If you haven't already, register as a user with an 4 letter or less username and password of the same amount with no capital letters or numbers.
+            You may even want to login with this account for future purposes.
+            <br /><br />With this in mind, both of these values have a maximum entropy of roughly 37 bits. This is a measurement of username/password complexity or simply how hard are these values to guess.
+            <br /><br />Assuming this website has over 1,000 accounts where an attacker can guess at 1,000 times per second, then on average an account's username and password can get guessed in 0.1 seconds.
           </p>
         </div>
+
+        <div class="header-overlay">
+          <h1 id="Solutions">Solutions</h1>
+            <div class="p-container">
+              <p>From the perspective of a developer, the following solutions include:
+                <br /><br /><b>Rate Limiting</b> - Allow only a certain amount of login attempts on an account before locking it.
+                <br /><br /><b>Two Factor Authentication</b> - Continously log a user's location such that if their ip address doesn't match the original stored, send a verification code to the account's email to verify the user's legitimacy.
+
+                <br /><br />However, from the perspective of a user, you can also take the following initiatives:
+                <br /><br /><b>Stronger password complexity</b> - This includes having both a longer length and more characters. Password entropy is defined as the log of the character set to the power of the password length.
+                Therefore, an 8 letter password with an upper-case and a lower-case character, a special symbol and a number increases its entropy to 52 bits. Or in terms of the scenario as before, will take roughly 250 years to guess.
+                <br /><br /><b></b>
+
+              </p>
+            </div>
+        </div>
+
     </div>
   </body>
 </html>

@@ -17,6 +17,7 @@
   <body>
     <div class="video-container">
       <video autoplay muted loop class="default-vid">
+        <!--https://www.youtube.com/watch?v=ciNHn38EyRc-->
         <source src="/img/video/sql-injection.mp4" type="video/mp4">
       </video>
     </div>
@@ -36,37 +37,36 @@
     <div class="header-container">
       <h1 id="Introduction">Introduction</h1>
         <div class="p-container">
-          <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>-->
-        <br /><br />
-        <p>[Introduction Material]</p>
-        <br /><br />
+          <p>Injection attacks are described by OWASP as the number one most vulnerable security risk. This vulnerability occurs when malicious input is passed into a database without being properly validated or encoded.
+            <br /><br />
+            This input is typically in the form of a single quote (') which escapes the query allowing additonal SQL to be written into the query.
+        </p>
         </div>
     </div>
 
     <div class="header-overlay">
         <h1 id="Risks">Risks</h1>
           <div class="p-container">
-            <br /><br />
-            <p>[Risk Material]</p>
-            <br /><br />
-
-          </div>
+            <p>SQL Injection can result in the following factors:
+              <br /><br /> - Exposure of database structure
+              <br /> - Unauthorised manipulation of classified user information (update, delete, etc)
+              <br /> - Leaking of classified and sensitive user information
+              <br /><br /> This is in fact the exploit that TalkTalk fell vulnerable to back in 2015 which exposed more than 150,000 users credentials
+          </p>
+        </div>
     </div>
 
     <div class="header-container">
       <h1 id="Demonstration">Demonstration</h1>
         <div class="p-container">
-          <!--<h2>SQL injection example</h2>
-          <p>The following is an example of search bar where you can search for vulnerabilities that are explored on this platform. <br />However, it's also vulnerable to SQL injection when appropriately escaping the single quotes (')</p>-->
+          <p>The following is an example of search bar where you can search for vulnerabilities that are explored on this platform. This is accomplished using the following SQL query:
+            <br /><br />SELECT title FROM home_buttons WHERE title LIKE '[user_input]%'
+            <br /><br />However, this also renders the search bar vulnerable to injection as users can escape the single quotes surrounding the user input. In order first test an SQL injection, insert the following result:
+            <br /><br /><b>'  UNION SELECT SLEEP(3)-- '</b> - This instructs the query to wait for 3 seconds before executing. While this won't return any results, it's enough to expose the feature's vulnerability to SQL injection.
+            <br /><br /><b>' UNION SELECT name FROM INFORMATION_SCHEMA.INNODB_SYS_TABLES -- '</b> - This injection is much more destructive and calls on retrieving all tables from the information schema, a metadata table that's public in all MySQL databases
+            <br /><br />See if you can uncover the sensitive user table as seen at the bottom.
+          </p>
           <div class="search-container">
-
-            <br /><br />
-            <p>[Demonstration Material]</p>
-            <br /><br />
 
             <!-- New search bar-->
             <form class="search" method="GET" action="sql-injection.php?#Demonstration">
@@ -110,9 +110,11 @@
         <div class="header-overlay">
           <h1 id="Solutions">Solutions</h1>
             <div class="p-container">
-              <br /><br />
-              <p>[Solution Material]</p>
-              <br /><br />
+              <p>
+                The two solutions to preventing SQL injection are as follows:
+                <br /><br /><b>Prepared statements</b> - This helps encoding the output before being interpreted by the database. As a result, this prevents an application from accidentally executing an injected SQL expression.
+                <br /><br /><b>Input validation</b> - This describes the sanitisation of the user input before being merged into the query. This generally checks whether the user input contains valid characters, rejecting any queries with special symbols such as (')
+              </p>
             </div>
         </div>
     </div>

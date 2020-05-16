@@ -49,7 +49,10 @@
           echo "<p class='error'>Email server cannot connect</p>";
         }
         else if (strpos($url, "invalid_query") == true) {
-          echo "<p class='error'>500 Server Error. The server encountered an internal error and was unable to register a user</p>";
+          echo "<p class='error'>500 Server Error. The server encountered an internal error and was unable to login</p>";
+        }
+        else if (strpos($url, "cannot_fetch") == true) {
+          echo "<p class='error'>Cannot fetch results</p>";
         }
 
          ?>

@@ -30,14 +30,11 @@ class home_controller extends home_model {
 
   public function insecureSearchData($query) {
 
-    $query = mysqli_real_escape_string($this->conn, $query);
-
     $this->sql = "SELECT title FROM home_buttons WHERE title LIKE '$query%'";
 
     $result = mysqli_query($this->conn, $this->sql);
 
     return $result;
-    $this->conn->close();
   }
 
   public function secureSearchData($query) {

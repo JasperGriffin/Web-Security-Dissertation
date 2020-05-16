@@ -1,0 +1,18 @@
+/*Navbar changes*/
+.login-btn button {
+  background: #51ff93;
+}
+
+.first-child:hover, .middle-child:hover, .last-child:hover {
+  border: 2px solid #51ff93;
+  background: #51ff93;
+}
+
+/*template changes*/
+.colour-overlay {
+  background: rgb(81,255,147,0.3);
+}
+
+.header-overlay {
+  background: rgb(81,255,147);
+}

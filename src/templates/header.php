@@ -19,8 +19,8 @@
   }
   else {
 
-    //$sessionController->setSecureSettings();
-    session_start();
+    $sessionController->setSecureSettings();
+    //session_start();
   }
 
 ?>
@@ -51,16 +51,16 @@
       						<button><p>SQL Injection</p></button>
       					</form>
                 <br />
-                <form action='/src/vulnerabilities/sql-injection.php' method='get'>
+                <form action='/src/vulnerabilities/broken-authentication.php' method='get'>
       						<button><p>Broken Authentication</p></button>
+      					</form>
+                <br />
+                <form action='/src/vulnerabilities/session-hijacking.php' method='get'>
+      						<button><p>Session Hijacking</p></button>
       					</form>
                 <br />
                 <form action='/src/vulnerabilities/cross-site-scripting.php' method='get'>
       						<button><p>Cross-site Scripting</p></button>
-      					</form>
-                <br />
-                <form action='/src/vulnerabilities/broken-access-control.php' method='get'>
-      						<button><p>Broken Access Control</p></button>
       					</form>
 
               </div>
