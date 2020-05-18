@@ -18,7 +18,7 @@
      </div>
      <div class="colour-overlay"></div>
      <div class="subheadings">
-       <h1>Broken authentication</h1>
+       <h1>Session Hijacking</h1>
        <div class="anchor-buttons">
          <button class="first-child"><a href="#Introduction">Introduction</a></button>
          <button class="middle-child"><a href="#Risks">Risks</a></button>
@@ -58,9 +58,9 @@
          <div class="header-overlay">
            <h1 id="Solutions">Solutions</h1>
              <div class="p-container">
-               <p>To prevent sessino hijacking the following solutions include:
+               <p>To prevent session hijacking the following solutions include:
                  <br /><br /><b>More complex identifiers</b> - Generating more secure and complex session identifier that are harder to guess from an attacker's perspective
-                 <br /><br /><b>More secure session handling</b> - Unsetting and destroying a session id every time a user logs out to minise the pool of guesses an attacker can make.
+                 <br /><br /><b>More secure session handling</b> - Unsetting and destroying a session id every time a user logs out to minimise the pool of guesses an attacker can make.
                </p>
              </div>
          </div>

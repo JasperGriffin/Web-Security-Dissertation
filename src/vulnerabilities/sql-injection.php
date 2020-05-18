@@ -61,7 +61,7 @@
         <div class="p-container">
           <p>The following is an example of search bar where you can search for vulnerabilities that are explored on this platform. This is accomplished using the following SQL query:
             <br /><br />SELECT title FROM home_buttons WHERE title LIKE '[user_input]%'
-            <br /><br />However, this also renders the search bar vulnerable to injection as users can escape the single quotes surrounding the user input. In order first test an SQL injection, insert the following result:
+            <br /><br />However, this also renders the search bar vulnerable to injection as users can escape the single quotes surrounding the user input. In order to first test an SQL injection, insert the following result:
             <br /><br /><b>'  UNION SELECT SLEEP(3)-- '</b> - This instructs the query to wait for 3 seconds before executing. While this won't return any results, it's enough to expose the feature's vulnerability to SQL injection.
             <br /><br /><b>' UNION SELECT name FROM INFORMATION_SCHEMA.INNODB_SYS_TABLES -- '</b> - This injection is much more destructive and calls on retrieving all tables from the information schema, a metadata table that's public in all MySQL databases
             <br /><br />See if you can uncover the sensitive user table as seen at the bottom.
