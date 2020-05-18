@@ -56,26 +56,6 @@ class user_login_controller extends user_model {
 
   public function secureLogin($username, $password) {
 
-    //prepared statements + regex'd parameters to store variables
-    //https://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php
-
-    //Why using regex won't work
-    //https://security.stackexchange.com/questions/203843/is-it-possible-to-detect-100-of-sqli-with-a-simple-regex
-
-    //For security reasons, mysqli_query will not execute multiple queries to prevent SQL injections.
-    //$username = $this->conn->real_escape_string($username);
-    //real_escape_string doesn't include % for LIKE clauses
-    //https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection
-
-    //perhaps check if ip is different to ip  db then ->
-    //two factor authorisation (as separate method)
-
-    //potentialn concatenating strings?
-    //https://vladmihalcea.com/a-beginners-guide-to-sql-injection-and-how-you-should-prevent-it/
-
-    //REALLY INTERESTING ARTICLE
-    //https://stackoverflow.com/questions/5741187/sql-injection-that-gets-around-mysql-real-escape-string
-
     $this->sql = "SELECT user_id, hashed_pwd, email, ip FROM users WHERE username = ?";
 
     if ($this->conn) {
