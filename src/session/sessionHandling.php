@@ -46,15 +46,12 @@ class sessionHandling {
 
     $charSet = "1234567890";
     $arr = array();
-    $setLength = strlen($charSet) - 1;
 
     for ($i = 0; $i < $this->arrLength; $i++) {
-      $rand = rand(0, $setLength);
-      $arr[] = $charSet[$rand];
+      $arr[] = $charSet[rand(0, 9)];
     }
 
     $token = $id . implode($arr);
-
     header("Location: ../../index.php?token=$token");
     exit();
   }
