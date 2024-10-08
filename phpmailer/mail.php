@@ -22,7 +22,7 @@
         $mail->Host       = 'smtp.office365.com';                    // Set the SMTP server to send through
         $mail->SMTPAuth   = true;
         $mail->Username   = 'jaspergriffinjsg@hotmail.co.uk';                     // SMTP username
-        $mail->Password   = 'lkJmjj1466!';                               // SMTP password
+        $mail->Password   = '<insert password>';                               // SMTP password
         $mail->SMTPSecure = "tls";         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
         $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
